@@ -25,7 +25,7 @@
 	<center>
 	<table height="27px">
 		<tr>
-			<td style="width:140px;" align="center">Foodbook Logo</td>
+			<td style="width:140px;" align="center"><?php include "searchByMenuBar.php"; ?></td>
 			<td style="width:500px;" align="center"><?php include "searchByIngBar.php"; ?></td>
 			<?php
 			if(!isset($_SESSION['login_username'])){

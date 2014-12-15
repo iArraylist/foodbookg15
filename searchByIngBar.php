@@ -15,7 +15,7 @@
 
 
 		<form action="search.php" method="POST">
-		<input type="text" id="inputingrediants" data-role="tagsinput" name="s_ingrediants" >
+		<input type="text" id="inputingrediants" data-role="tagsinput" name="s_ingrediants" required >
 		<input type="submit" class="btn defult" value="Search" >
 		</form>
 

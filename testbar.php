@@ -16,11 +16,13 @@
 </head>
 <body>
 
+	<?php 
 
+	$search_menu=""; ?>
 	
 		<form action="search.php" method="POST">
 		
-		<input name="s_menu" type="text" >
+		<input name="s_menus" type="text" value="<?php echo $search_menu; ?>">
 		<input type="submit" name"btn_searchbymenu" >
 		</form>
 

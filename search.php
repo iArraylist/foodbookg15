@@ -25,14 +25,17 @@
 	?>
 	<?php
 
+	$recipes=array();
+
+	if(!isset($_POST['s_menus'])){
 	$s_ingrediants=explode(",", $_POST['s_ingrediants']);
 
 	//$cat01=array();
 	//$cat02=array();
 	//$cat03=array();
 	$ingrediants=array();
-	$recipes=array();
-	$real_recipes=array();
+	
+	
 
 	for ($count=0;$count<count($s_ingrediants);$count++) {
 
@@ -86,6 +89,34 @@
 
 	
 	usort($recipes, 'sortByOrder');
+	}
+	else {
+		
+$s_menus=explode(" ", $_POST['s_menus']);
+ 	for ($count=0;$count<count($s_menus);$count++) {
+ 		$word=$s_menus[$count];
+		$result=mysql_query("SELECT * FROM recipes WHERE recipe_name LIKE '%".$word."%'");
+
+		$rows=mysql_num_rows($result);
+		if($rows!=0){
+			while ($resultData=mysql_fetch_array($result)) {
+				$recipe_id=$resultData['recipe_id'];
+				if(!(in_array_recursive($recipe_id, $recipes))){
+					$recipes[]=array($resultData['recipe_id'],1);
+					
+				} else{
+					$key=searchForId($recipe_id, $recipes);
+					$recipes[$key][1]++;
+					
+
+				}		
+			}	
+		} 
+
+
+
+ 	}
+}
 
 	?>
 
@@ -119,6 +150,7 @@
 
 
 		<?php
+	
 
 		// function in_array_recur($needle, $haystack, $strict = false) {
 		// 	foreach ($haystack as $item) {

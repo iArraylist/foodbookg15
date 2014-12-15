@@ -19,21 +19,13 @@
 
 	
 		<form action="search.php" method="POST">
-		<input type="text" id="inputingrediants" data-role="tagsinput" name="s_ingrediants" >
-		<input type="submit" >
+		
+		<input name="s_menu" type="text" >
+		<input type="submit" name"btn_searchbymenu" >
 		</form>
 
 
-	<script>
-	var ingrediants=[<?php include 'queryIngrediants.php' ?>];
-	$('#inputingrediants').tagsinput({
-		typeahead: {
-			source:ingrediants
-		},
-		freeInput: false
-	});
-
-	</script>
+	
 
 
 </body>

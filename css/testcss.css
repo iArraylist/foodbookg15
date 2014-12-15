@@ -1,0 +1,57 @@
+@import url(http://weloveiconfonts.com/api/?family=entypo);
+
+
+/* zocial */
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; 
+}
+
+
+input {
+  padding: 16px;
+  border-radius:7px;
+  border:0px;
+  background: rgba(0,0,0,.2);
+  display: block;
+  width: auto;  
+  color:white;
+  font-size:14px;
+  height: 20px;
+}
+
+input:focus {
+  outline-color: rgba(0,0,0,0);
+  background: rgba(0,0,0,.95);
+  color: #e74c3c;
+}
+
+
+.inputUserIcon {
+  position:absolute;
+
+  right: 80px;
+  color:white;
+}
+
+.inputPassIcon {
+  position:absolute;
+ 
+  right: 80px;
+  color:white;
+}
+
+input::-webkit-input-placeholder {
+  color: white;
+}
+
+input:focus::-webkit-input-placeholder {
+  color: #e74c3c;
+}

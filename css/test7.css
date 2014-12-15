@@ -78,12 +78,15 @@ color: #F22613;
 
 }
 .footer {
-padding: 2em 0;
-background: #F64747;
+	padding: 2em 0;
+	background: #F64747;
 }
 .r-header-container-2 .container p{
 	margin-top: 20px;
 	color: white;
+}
+.popular{
+	background-color: #ECECEC;
 }
 .popular-menu-content{
 	padding: 5em 0;
@@ -98,18 +101,20 @@ background: #F64747;
 }
 .popular-menu-content-head{
 	text-align: center;
-	margin-bottom: 7em;
+	margin-bottom: 5em;
 }
 .popular-menu-grid{
-	padding-bottom: 1em;
+	background-color: white;
+	padding-bottom: 0em;
+	padding-top: 15px;
 	border-bottom: 1px solid #D7D7D7;
-	margin-bottom: 2em;
-	margin-top: 2em;
+	margin-bottom: 0em;
+	margin-top: 10px;
 	display: block;
 
 }
 .popular-menu-grid-sub{
-		margin-bottom: 1em;
+	margin-bottom: 1em;
 }
 .popular-menu-grid-sub-title{
 	
@@ -132,17 +137,17 @@ background: #F64747;
 	margin-top: 25px;
 }
 .popular-rating span {
-display: block;
-font-size: 1.23em;
-font-weight: 600;
-margin-left: 5px;
+	display: block;
+	font-size: 1.23em;
+	font-weight: 600;
+	margin-left: 5px;
 }
 #more-button{
 	font-size: 16px;
 	text-align: right;
 	padding: 15px 30px;
 	background: #F64747;
-	-webkit-border-radius: 20px;
+	border-radius: 20px;
 	border: none;
 	color: white;
 	margin-top: 40px;

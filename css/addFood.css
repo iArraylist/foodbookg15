@@ -83,7 +83,6 @@ body {
 	display: inline-block;
 	padding: 4px 6px;
 	margin-bottom: 0px;
-
 	color: #555;
 	vertical-align: middle;
 	border-radius: 4px;
@@ -93,13 +92,14 @@ body {
 	width: 250px;	
 }
 
+
 .bootstrap-tagsinput input {
 	border: none;
 	box-shadow: none;
 	outline: none;
 	background-color: transparent;
 	padding: 0;
-	margin: 0;
+	margin: 5px;
 	width: auto !important;
 	max-width: inherit;
 }
@@ -122,7 +122,7 @@ body {
 	border: 1px solid #CCC;
 	border-radius: 5px;
 	background: #F7F7F7;
-	color: #D53B91;
+	color: #000;
 	padding: 10px;
 	height: auto;
 	margin-bottom: 10px;

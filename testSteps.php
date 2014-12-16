@@ -20,7 +20,7 @@
 	.connected, .sortable, .exclude, .handles {
 		margin: auto;
 		padding: 0;
-		width: 310px;
+		width: 610px;
 		-webkit-touch-callout: none;
 		-webkit-user-select: none;
 		-khtml-user-select: none;
@@ -63,85 +63,23 @@
 
 	<form action="" method="POST">
 		
-		<ul id="Steps2" class="handles list">
+		<ul id="Steps" class="handles list">
 			<li id="li_step_1"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
 				<div id="div_step_1" >
 					<label>Step: Title</label>
 					<input type="text" class="form-control" placeholder="Enter title" name="title_step_1">
+					<label>Picture</label><br>
+					<img id="uploadPreview_1" />
+					<input style="margin-bottom:20px" id="uploadImage_1" type="file" name="imgStep_1" onchange="PreviewImage('uploadImage_1','uploadPreview_1');" />
+					<label>How to</label>
+					<textarea style="max-width: 578px;" class="form-control" rows="5" placeholder="Enter description" name="howto_step_1"></textarea>
 				</div>
 			</li>
 		</ul>
 
 		<script>
-		var i2 = 2;
-		function myFunction2() {
-
-			var labelTitle = document
-			.createElement("label");
-			labelTitle.innerHTML = "Step: Title";
-
-			var newStep = document
-			.createElement("input");
-			newStep.setAttribute('type', 'text');
-			newStep.setAttribute('placeholder',
-				'Enter title');
-			newStep.setAttribute('class',
-				'form-control');
-			newStep.setAttribute('name', 'title_step_' + i2);
-
-			var div = document
-			.createElement("div")
-			div.setAttribute('id', 'div_step_' + i2);
-			div.appendChild(labelTitle);
-			div.appendChild(newStep)
-
-			var span = document
-			.createElement("span");
-			span.setAttribute('class', 'ui-icon ui-icon-arrowthick-2-n-s');
-
-			var li = document
-			.createElement("li");
-			li.setAttribute('id', 'li_step_' + i2);
-			li.setAttribute('draggable', true);
-			li.appendChild(span);
-			li.appendChild(div);
-
-
-			//var textnode = document.createTextNode("");
-			//newItem.appendChild(textnode);
-
-
-
-			var steps = document
-			.getElementById("Steps2");
-			steps.appendChild(li);
-			i2 = i2 + 1;
-
-			$('.handles').sortable('refresh');
-			console.log("test");
-
-		}
-
-		</script>
-
-
-
-
-		<div id="Steps" style="margin:10;">
-
-			<div id="div_step_1" >
-				<label id="test" >Step: Title</label>
-				<input type="text" class="form-control" placeholder="Enter title" name="title_step_1">
-			</div>
-
-		</div>
-		<button type="button" class="btn btn-defult" style="margin-bottom: 2px;" onclick="myFunction()">Add</button>
-		<button type="button" class="btn btn-defult" style="margin-bottom: 2px;" onclick="myFunction2()">Add2</button>
-		<button type="button" class="btn btn-defult" style="margin-bottom: 2px;" onclick="getOrderli()">Get</button>
-
-		<script>
 		var i = 2;
-		function myFunction() {
+		function addSteps() {
 
 			var labelTitle = document
 			.createElement("label");
@@ -156,11 +94,62 @@
 				'form-control');
 			newStep.setAttribute('name', 'title_step_' + i);
 
+			var labelPicture = document
+			.createElement("label");
+			labelPicture.innerHTML = "Picture";
+
+			var br = document.createElement("br");
+
+			var img = document
+			.createElement("img");
+			img.setAttribute('id', 'uploadPreview_' + i);
+
+			var upimg = document
+			.createElement("input");
+			upimg.setAttribute('style','margin-bottom:20px');
+			upimg.setAttribute('id', 'uploadImage_' + i);
+			upimg.setAttribute('type', 'file');
+			upimg.setAttribute('name', 'imgStep_' + i);
+			upimg.setAttribute('onchange', 'PreviewImage(\'uploadImage_' + i +'\',\'uploadPreview_'+ i +'\');')
+
+			var labelHowTo = document
+			.createElement("label");
+			labelHowTo.innerHTML = "How to";
+
+			var howto = document
+			.createElement("textarea");
+			howto.setAttribute('style', 'max-width: 578px;');
+			howto.setAttribute('placeholder',
+				'Enter description');
+			howto.setAttribute('class',
+				'form-control');
+			howto.setAttribute('name', 'howto_step_' + i);
+			howto.setAttribute('rows', '5');
+
 			var div = document
 			.createElement("div")
 			div.setAttribute('id', 'div_step_' + i);
 			div.appendChild(labelTitle);
-			div.appendChild(newStep)
+			div.appendChild(newStep);
+			div.appendChild(labelPicture);
+			div.appendChild(br);
+			div.appendChild(img);
+			div.appendChild(upimg);
+			div.appendChild(labelHowTo);
+			div.appendChild(howto);
+
+
+			var span = document
+			.createElement("span");
+			span.setAttribute('class', 'ui-icon ui-icon-arrowthick-2-n-s');
+
+			var li = document
+			.createElement("li");
+			li.setAttribute('id', 'li_step_' + i);
+			li.setAttribute('draggable', true);
+			li.appendChild(span);
+			li.appendChild(div);
+
 
 			//var textnode = document.createTextNode("");
 			//newItem.appendChild(textnode);
@@ -169,13 +158,35 @@
 
 			var steps = document
 			.getElementById("Steps");
-			steps.appendChild(div);
+			steps.appendChild(li);
 			i = i + 1;
 
+			$('.handles').sortable('refresh');
+			console.log("test");
 
 		}
 
+
+
+		function PreviewImage(upimgID,imgID) {
+			var oFReader = new FileReader();
+			oFReader.readAsDataURL(document.getElementById(upimgID).files[0]);
+			oFReader.onload = function (oFREvent) {
+				document.getElementById(imgID).src = oFREvent.target.result;
+				document.getElementById(imgID).setAttribute('style', 'height:150px;margin-bottom:5px;')
+			};
+		};
+
 		</script>
+
+
+
+
+
+		<button type="button" class="btn btn-defult" style="margin-bottom: 2px;" onclick="addSteps()">Add</button>
+		<button type="button" class="btn btn-defult" style="margin-bottom: 2px;" onclick="getOrderli()">Get</button>
+
+		
 
 		<script>
 		function getOrderli(){
@@ -195,11 +206,11 @@
 
 			$('.handles').sortable({
 				handle: 'span'
-			}
+			});
 
 		});
 
-		});
+
 
 		</script>
 	</form>

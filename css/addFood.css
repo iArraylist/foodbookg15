@@ -1,0 +1,144 @@
+@font-face {
+	font-family: sukhumvit;
+	src: url('../sukhumvitset-text-webfont.ttf') format("truetype");
+}
+.container{
+	width: 960px;
+}
+body {
+	font-family: sukhumvit;
+
+}
+
+.r-addfoodpage{
+	display:block;
+	background-color: #F2F1EF;
+	padding-top: 50px;
+}
+
+.r-addfoodpage-1{
+	text-align: center;
+}
+.r-addfoodpage .r-addfoodpage-1 a{
+	font-size: 36px;
+	font-weight: 400;
+	color: #000;
+	border: 5px solid;
+	padding: 13px 30px;
+	text-decoration: none
+}
+
+.r-header-container{
+	background: url('../bg-wood.jpg')50% 50% repeat;
+	background-size: 100%;
+	width: 100%;
+	height: 120px;
+	z-index: 11;
+
+}
+.r-header-container-2{
+	background: url('../bg-wood.jpg')50% 50% repeat;
+	background-size: 100%;
+	width: 100%;
+	height: 60px;
+	z-index: 11;
+
+}
+
+.footer {
+	padding: 2em 0;
+	background: #F64747;
+}
+
+.r-header-container-2 .container p{
+	margin-top: 20px;
+	color: white;
+}
+
+.fa {
+	margin-top: -5px;
+	margin-bottom: 5px;
+	color: #000;
+}
+
+.form-addfood{
+	background-color: white;
+	padding-bottom: 20px;
+	padding-top: 20px;
+	padding-right: 20px;
+	padding-left: 20px;
+	border-bottom: 1px solid #D7D7D7;
+	margin-bottom: 20px;
+	display: block;
+
+}
+
+.crop { width: 220px; height: 220px; overflow: hidden; }
+.crop img { width: 100%; }
+
+.bootstrap-tagsinput {
+	background-color: #fff;
+	border: 1px solid #ccc;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	display: inline-block;
+	padding: 4px 6px;
+	margin-bottom: 0px;
+
+	color: #555;
+	vertical-align: middle;
+	border-radius: 4px;
+	max-width: 100%;
+	line-height: 22px;
+	cursor: text;
+	width: 250px;	
+}
+
+.bootstrap-tagsinput input {
+	border: none;
+	box-shadow: none;
+	outline: none;
+	background-color: transparent;
+	padding: 0;
+	margin: 0;
+	width: auto !important;
+	max-width: inherit;
+}
+
+
+.connected, .sortable, .exclude, .handles {
+	margin: auto;
+	padding: 0;
+	width: 430px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.connected li, .sortable li, .exclude li, .handles li {
+	list-style: none;
+	border: 1px solid #CCC;
+	border-radius: 5px;
+	background: #F7F7F7;
+	color: #D53B91;
+	padding: 10px;
+	height: auto;
+	margin-bottom: 10px;
+}
+.handles span {
+	cursor: move;
+}
+li.disabled {
+	opacity: 0.5;
+}
+
+li.highlight {
+	background: #FEE25F;
+}
+li.sortable-placeholder {
+	border: 1px dashed #CCC;
+	height: 30px;
+	background: none;
+}

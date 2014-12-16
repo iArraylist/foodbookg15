@@ -85,10 +85,14 @@ color: #F22613;
 	margin-top: 20px;
 	color: white;
 }
-.popular{
+
+
+
+
+.menutype{
 	background-color: #ECECEC;
 }
-.popular-menu-content{
+.menutype-menu-content{
 	padding: 5em 0;
 }
 #head{
@@ -99,11 +103,11 @@ color: #F22613;
 	border: 5px solid;
 	padding: 10px 55px;
 }
-.popular-menu-content-head{
+.menutype-menu-content-head{
 	text-align: center;
 	margin-bottom: 5em;
 }
-.popular-menu-grid{
+.menutype-menu-grid{
 	background-color: white;
 	padding-bottom: 0em;
 	padding-top: 15px;
@@ -113,13 +117,13 @@ color: #F22613;
 	display: block;
 
 }
-.popular-menu-grid-sub{
+.menutype-menu-grid-sub{
 	margin-bottom: 1em;
 }
-.popular-menu-grid-sub-title{
+.menutype-menu-grid-sub-title{
 	
 }
-.popular-menu-grid-sub-title h4{
+.menutype-menu-grid-sub-title h4{
 
 	
 }
@@ -136,7 +140,7 @@ color: #F22613;
 	font-size: 16px;
 	margin-top: 25px;
 }
-.popular-rating span {
+.menutype-rating span {
 	display: block;
 	font-size: 1.23em;
 	font-weight: 600;

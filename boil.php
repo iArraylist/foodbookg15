@@ -1,25 +1,26 @@
 <?php include("confic.inc.php");?>
 <!DOCTYPE html>
 <head>
-	<title>Most Popular</title>
+	<title>*Most Popular*</title>
 </head>
 <body>
 
-== RANKING รวม == <br>
-
+== อาหารประเภทต้ม == <br>
 
 
 </body>
 
 <?php
+#$selected_val = $dropDownCategory[$_POST['category']];
+#echo "$selected_val";
+$categoryName = $_POST['categoryName'];
+echo "=======================";
+echo "<br>";
 
-$getRecipeRankingSql = "select * from recipes_ranking2 limit 10";
-#$getRecipeByCategory = "select * from recipes_ranking2 where reci_category_id = $categoryName ";
+$getRecipeByCategory = "select * from recipes_ranking2 where reci_category_id = '2' limit 2";
 $dbname = "foodbookdb";
-$dbquery = mysql_db_query($dbname, $getRecipeRankingSql);
 $dbqueryByCategory = mysql_db_query($dbname, $getRecipeByCategory);
-#while($row = mysql_fetch_array($dbqueryByCategory)){
-while($row = mysql_fetch_array($dbquery)){
+while($row = mysql_fetch_array($dbqueryByCategory)){
 	
 	echo "Recipe_id". " : " .$row{'recipe_id'}; 
 	echo "<br>";

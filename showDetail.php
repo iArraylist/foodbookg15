@@ -103,7 +103,7 @@
 				<br>
 				<label>ชื่อรายการอาหาร: </label><?php echo " " . $faterrayrecipe['recipe_name']; ?><br>
 				<label>Rate </label> 
-				<?php include ("showRates.php");?> <br>
+				
 				
 				<?php 
 
@@ -115,7 +115,7 @@
 
 
 				?>
-
+				<br>
 				<label>รายละเอียดคร่าวๆ: </label><?php echo " " . $faterrayrecipe['descripShort']; ?><br>
 				<label>รูปภาพ</label>
 				<div id="crop" class="crop">

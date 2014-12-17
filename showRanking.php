@@ -1,7 +1,7 @@
 <?php include("confic.inc.php");?>
 <!DOCTYPE html>
 <head>
-	<title>Most Popular</title>
+	<title>Top 10</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
@@ -66,16 +66,53 @@
 <div class="menutype">
 	<div class="container">
 		<div class="menutype-menu-content">
+			
+			<?php
+				$cate_type = NULL;
+				if (isset($_GET['cate_type'])) {
+					$cate_type = $_GET['cate_type'];
+				} else {
+					$cate_type = NULL;
+				}
+				// $cate_type = $_GET['cate_type'];
+			?>
+
+
+			<?php
+			$dbname = "foodbookdb";
+			$sql = "";
+			if (!is_null($cate_type)) {
+				$sql = "select * from reci_categories join reci_categories_has_recipes on reci_categories.reci_category_id = reci_categories_has_recipes.reci_category_id join recipes on reci_categories_has_recipes.recipe_id = recipes.recipe_id where reci_categories.reci_category = '$cate_type'";
+			} else {
+				$sql = "select * from reci_categories join reci_categories_has_recipes on reci_categories.reci_category_id = reci_categories_has_recipes.reci_category_id join recipes on reci_categories_has_recipes.recipe_id = recipes.recipe_id";
+
+			}
+			$dbquery = mysql_db_query($dbname, $sql);
+
+			$getRecipeByCategory = NULL;
+			if (!is_null($cate_type)) {
+				$getRecipeByCategory = "select * from recipes_ranking where reci_category = '$cate_type' limit 10";
+			
+			?>
+			
 			<div class="menutype-menu-content-head">
-				<a id="head" href="#">TOP 10</a>
+				<a id="head" href="#">เมนูยอดนิยมประเภท<?php echo $cate_type; ?></a>
 			</div>
 
 			<?php
+			} else {
+				$getRecipeByCategory = "select * from recipes_ranking limit 10";
 
-			$getRecipeByCategory = "select * from recipes_ranking limit 10";
-			$dbname = "foodbookdb";
+			?>
+			<div class="menutype-menu-content-head">
+				<a id="head" href="#">TOP 10</a>
+			</div>
+			<?php
+			}
 			$dbqueryByCategory = mysql_db_query($dbname, $getRecipeByCategory);
 			while($row = mysql_fetch_array($dbqueryByCategory)){
+				$fetcharray = mysql_fetch_array($dbquery);
+
 				?>
 				<div class="menutype-menu-grid">
 					<div class="menutype-menu-grid-sub">
@@ -88,8 +125,8 @@
 								<h4>
 									<a id = "title" href=""><?php echo $row{'recipe_name'};?></a>
 								</h4>
-								<h5 id="username">
-									By Username
+									<h5 id="username">By <?php echo $fetcharray['member_id'] ;?></h5>
+
 									<br>
 									<?php echo "rate: " . round($row{'average_rate'},1);
 									echo "<br>";

@@ -26,7 +26,6 @@
 			});
 	</script>
 </head>
-</head>
 <body>
 <div class="container">
 	<div class="r-header-container">

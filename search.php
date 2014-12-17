@@ -10,6 +10,8 @@
 	<script src="js/bootstrap-typeahead.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" href="css/footer.css">
 	<link rel="stylesheet" type="text/css" href="css/categoryType.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="js/docs.min.js"></script>
@@ -32,6 +34,9 @@
 </head>
 <body>
 	<div class="container">
+		<div class="r-header-container">
+
+		</div>
 		<?php 
 		include "navbarV2.php";
 		?>
@@ -138,7 +143,7 @@ else {
 	<?php
 	foreach ($recipes as $value) {
 		$recipe_id=$value[0];
-		$result=mysql_query("SELECT * FROM recipes WHERE recipe_id='$recipe_id'");
+		$result=mysql_query("SELECT * FROM recipes join members on members.member_id=recipes.member_id WHERE recipe_id='$recipe_id'");
 		while ($resultData=mysql_fetch_array($result)){
 			?>
 			<div class="menutype-menu-grid wow fadeInRight" data-wow-delay="0.4s">
@@ -151,7 +156,7 @@ else {
 							<h4>
 								<a id = "title" href="showDetail.php?recipe_id=<?php echo $recipe_id; ?>"><?php echo $resultData['recipe_name'] ; ?></a>
 							</h4>
-							<h5 id="username">By <?php echo $resultData['member_id'] ;?></h5>
+							<h5 id="username">By <?php echo $resultData['username'] ;?></h5>
 							<div class="menutype-rating">
 								<span>rating</span>
 								<a href="#">
@@ -229,6 +234,9 @@ else {
 	?>
 
 
+	<?php 
+	include "footer.html";
+	?>
 
 </div>
 

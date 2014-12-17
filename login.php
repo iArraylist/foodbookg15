@@ -16,7 +16,6 @@ if(isset($_POST['login'])){
 		if($resultData['status']=='PERMIT'){
 			$_SESSION['login_username']=$username;
 			$_SESSION['login_id']=$resultData['member_id'];
-			header("location: HomePage.php");
 		} else {
 			$error="Username id banned, Please contact Admin.";
 		}
@@ -64,7 +63,7 @@ if(isset($_POST['login'])){
 
 </style>
 
-<div style="margin-top:10px;text-align: -webkit-right;">
+
 	<form action="" method="post">
 		<input  class="loginbar" name="username" placeholder="Username" data-required="required" required >
 		<input  class="loginbar" type="password" placeholder="Password" name="password" data-required="required" required>
@@ -73,4 +72,4 @@ if(isset($_POST['login'])){
 	<form action="register.php" method="post">
 		<button class="btn btn-primary " type="submit" name="gotoRegisForm">Register</button>
 	</form>
-	<div>
+

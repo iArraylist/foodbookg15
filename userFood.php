@@ -1,76 +1,99 @@
-	
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/soponCss.css" rel="stylesheet">
-	<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-	<link href="css/bootstrap-tagsinput.css" rel="stylesheet">
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.js"></script>
-	<script src="js/bootstrap-tagsinput.js"></script>
-	<script src="js/bootstrap-tagsinput-angular.js"></script>
-	<script src="js/bootstrap-typeahead.js"></script>
-	<title>Food</title>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">\
+	<link rel="stylesheet" type="text/css" href="css/footer.css">
+	<link rel="stylesheet" type="text/css" href="css/categoryType.css">
+	<link rel="stylesheet" type="text/css" href="css/footer.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="js/docs.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/wow.min.js"></script>
+	<link href="css/animate.css" rel='stylesheet' type='text/css' />
+	<script>
+	new WOW().init();
+	</script>
+	<script type="text/javascript" src="js/move-top.js"></script>
+	<script type="text/javascript" src="js/easing.js"></script>
+	<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+		});
+	});
+	</script>
 </head>
 <body>
-
-	<?php
-	include "confic.inc.php";
-	include "header.php";
-	?>
 	<div class="container">
-		<h1 id="r-foodheader">Food</h1>
-		<table class="table table-bordered table-hover">
-			<tr id="r-texttable">
-
-				<td class="col-md-1">Food Picture</td>
-				<td class="col-xs-6 col-sm-3">Food Name</td>
-				<td class="col-xs-6 col-sm-3">Food Desc</td>
-				<td class="col-xs-6 col-sm-3">Food Action</td>
-			</tr>
-			<?php
-			$sql = "select * from recipes where member_id = '$_SESSION[login_id]' ";
-			
-			$dbquery = mysql_query($sql);
-			$num_rows = mysql_num_rows($dbquery);
-			$i=0;
-			while ($i<$num_rows) {
-				$fetarray = mysql_fetch_array($dbquery);
-				$i = $i+1; ?>
-				<tr class="r-row">
-					<td ><img class="r-img" src="images/food_img/<?php echo $fetarray['picture'] ;?>"></td>
-					<td ><a href="showDetail.php?recipe_id=<?php echo $fetarray['recipe_id'];?>"><?php echo $fetarray['recipe_name'] ; ?> </a></td>
-					<td ><?php echo $fetarray['descripShort'] ; ?> </td>
-					<td > 	
-						<form action="editFood.php" method="get">	
-							<input type="submit" value="Edit Food" >
-							<input type="hidden" name="editFood" value="<?php echo $fetarray['recipe_id'] ?>">
-						</form>	
-						<form action="UserFood.php" method="POST">	
-							<input type="hidden" name="del" value="<?php echo $fetarray['recipe_id'];?>">
-							<input type="submit" value="Delete">
-						</form> 
-					</td>
-				</tr>
-				<?php  } ?>
-			</table>
-
-
-			<?php if(isset($_POST["del"])) {
-				$sql2 = "Delete from foodbookdb.recipes where recipe_id = {$_POST["del"]} ";
-				mysql_query($sql2);
-				mysql_close();
-				header("location:UserFood.php");
-			} 
-			?>
-
-
+		<div class="r-header-container">
 
 		</div>
 
+		<?php 
+		include "navbarV2.php";
+		?>
 
-	</body>
-	</html>
+		
+		<div class="menutype-menu-content">
+			<?php 
+			$sql = "select * from reci_categories join reci_categories_has_recipes on reci_categories.reci_category_id = reci_categories_has_recipes.reci_category_id join recipes on reci_categories_has_recipes.recipe_id = recipes.recipe_id join members on recipes.member_id = members.member_id where recipes.member_id = '$_SESSION[login_id]'";
+			$dbquery = mysql_query($sql);
+			$num_rows = mysql_num_rows($dbquery);
+			$num_count = 0;
+			while ($num_count < $num_rows){
+				$fetcharray = mysql_fetch_array($dbquery);
+				$num_count = $num_count+1; ?>
+				<div class="menutype-menu-grid wow fadeInRight" data-wow-delay="0.4s">
+					<div class="menutype-menu-grid-sub">
+						<div class="col-md-3">
+							<img src="images/food_img/<?php echo $fetcharray['picture'] ?>" class="img-responsive" alt="">
+						</div>
+						<div class="col-md-7">
+							<div class="menutype-menu-grid-sub-title">
+								<h4>
+									<a id = "title" href="showDetail.php?recipe_id=<?php echo $fetcharray['recipe_id']; ?>"><?php echo $fetcharray['recipe_name'] ;?></a>
+								</h4>
+
+								<h5 id="username">By <?php echo $fetcharray['username'] ;?></h5>
+								<div class="menutype-rating">
+									<span>rating</span>
+									<a href="#">
+										<img src="star1.png" alt="">
+									</a>
+								</div>
+								<h5>Tag 
+									<?php 
+									$result = mysql_query("select * from reci_has_ing join ingrediants on reci_has_ing.ing_id = ingrediants.ing_id where reci_has_ing.recipe_id = '$fetcharray[recipe_id]'");
+									while($resultData = mysql_fetch_array($result)){ ?>
+									<kbd><?php echo $resultData['ing_name']; ?></kbd><?php
+								}?>
+							</h5>
+
+						</div>
+					</div>
+					<div class="col-md-2">
+						<form action="showDetail.php" method="get">
+							<input id="more-button" type="hidden" name= "recipe_id" value="<?php echo $fetcharray['recipe_id']; ?>" >
+							<input id="more-button" type="submit" value="อ่านต่อ" >
+						</form>
+					</div>
+
+					<div class="clearfix">
+					</div>
+				</div>
+			</div>
+
+			<?php	} ?>
+		</div>
+
+
+		<?php 
+		include "footer.html";
+		?>
+	</div>
+</body>
+</html>

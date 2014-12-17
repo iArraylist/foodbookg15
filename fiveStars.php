@@ -10,7 +10,7 @@ function check_data($sql){
 	}
 }
 
-$getRateOfMember = "select * from rates where recipe_id ='" . $recipe_id . "'and member_id = '".$_SESSION["member_id"]."'";
+$getRateOfMember = "select * from rates where recipe_id ='" . $recipe_id . "'and member_id = '".$_SESSION["login_id"]."'";
 $dbname = "foodbookdb";
 $dbqueryRateOfMember = mysql_db_query($dbname, $getRateOfMember);
 $num_rows = mysql_num_rows($dbqueryRateOfMember);

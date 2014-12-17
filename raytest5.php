@@ -1,54 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
+
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<meta charset="UTF-8">
-	<title></title>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-	<link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="css/test12.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script src="js/docs.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/wow.min.js"></script>
-	<link href='http://font-awesomets.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-	<link href="css/animate.css" rel='stylesheet' type='text/css' />
-	<script>
-	new WOW().init();
-	</script>
-	<script type="text/javascript" src="js/move-top.js"></script>
-	<script type="text/javascript" src="js/easing.js"></script>
-	<script type="text/javascript">
-	jQuery(document).ready(function($) {
-		$(".scroll").click(function(event){		
-			event.preventDefault();
-			$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
-		});
-	});
-	</script>
+	<title>Foodbook</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/soponCss.css" rel="stylesheet">
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
-	<div class="container">
-		<?php
-	include "login.php";
-	?>
-		<div class="main-logo wow bounceIn animated">
-			<p>
-				<img src="LOGO_01.png" alt="">
-			</p>
-		</div>
-	<!-- <a id="login" href=""></a>
-	<a id="regis" href=""></a> -->
-
-	<p>
-		<img class="login" src="LOGIN_ORI.png" alt="">
-	</p>
-	
-
 	<?php
-	include "confic.inc.php";
-	include "navbarV2.php";
+	include_once"confic.inc.php";
 	?>
 
 	<?php
@@ -68,7 +30,7 @@
 						$result=mysql_query("select member_id from members where username='$username'");
 						$_SESSION['login_username']=$username;
 						$_SESSION['login_id']=$result['member_id'];
-						header("location: HomePage.php");
+						header("location: index.php");
 					} else{
 						$error="Error for register, Please register again<br>";
 					}
@@ -132,7 +94,7 @@
 		display: inline-block;
 		width: 40px;
 
-		background-color: #F34141;
+		background-color: #3a57af;
 		padding: 8px 0px 8px 0px;
 		margin-left: 15px;
 		-webkit-border-radius: 4px 0px 0px 4px; 
@@ -157,7 +119,7 @@
 		-webkit-border-radius: 5px; 
 		-moz-border-radius: 5px; 
 		border-radius: 5px; 
-		background-color: #F34141 ; 
+		background-color: #3a57af; 
 		-webkit-box-shadow: 0 3px rgba(58,87,175,.75); 
 		-moz-box-shadow: 0 3px rgba(58,87,175,.75); 
 		box-shadow: 0 3px rgba(58,87,175,.75);
@@ -168,7 +130,7 @@
 
 	.regisbutton:hover {
 		top: 3px;
-		background-color:#EC1704;
+		background-color:#2e458b;
 		-webkit-box-shadow: none; 
 		-moz-box-shadow: none; 
 		box-shadow: none;
@@ -194,24 +156,24 @@
 
 	</style>
 
-	<section id="r-search" style="padding: 15px;">
-		<div class="testbox">
-			<h1>Registration</h1>
 
-			<form action"" method="post">
-				<center>
-					<?php echo "$error"; ?>
-					<label id="icon" for="name"><i class="icon-user"></i></label>
-					<input class="regisinput" type="text" name="username" placeholder="Username" required/><br>
-					<label id="icon" for="name"><i class="icon-shield"></i></label>
-					<input class="regisinput" type="password" name="password" placeholder="Password" required/><br>
-					<label id="icon" for="name"><i class="icon-shield"></i></label>
-					<input class="regisinput" type="password" name="repassword" placeholder="Re-Password" required/><br>
-					<button style="height: 33px;width: 93px;padding-bottom: 6px;" class="regisbutton" type="submit" name="regis">Register</button>
-				</center>
-			</form>
-		</div>
-	</section>
+
+	<div class="testbox">
+		<h1>Registration</h1>
+
+		<form action"" method="post">
+			<center>
+			<?php echo "$error"; ?>
+			<label id="icon" for="name"><i class="icon-user"></i></label>
+			<input class="regisinput" type="text" name="username" placeholder="Username" required/><br>
+			<label id="icon" for="name"><i class="icon-shield"></i></label>
+			<input class="regisinput" type="password" name="password" placeholder="Password" required/><br>
+			<label id="icon" for="name"><i class="icon-shield"></i></label>
+			<input class="regisinput" type="password" name="repassword" placeholder="Re-Password" required/><br>
+			<button style="height: 33px;width: 93px;padding-bottom: 6px;" class="regisbutton" type="submit" name="regis">Register</button>
+			</center>
+		</form>
+	</div>
 
 		<!--
 
@@ -227,9 +189,7 @@
 			</form>
 		</div>
 	-->
-</div>	
-
-
 </body>
 </html>
+
 

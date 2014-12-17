@@ -16,7 +16,7 @@ if(isset($_POST['login'])){
 		if($resultData['status']=='PERMIT'){
 			$_SESSION['login_username']=$username;
 			$_SESSION['login_id']=$resultData['member_id'];
-			header("location: index.php");
+			header("location: HomePage.php");
 		} else {
 			$error="Username id banned, Please contact Admin.";
 		}
@@ -33,20 +33,20 @@ if(isset($_POST['login'])){
 
 <style>
 .loginbar {
-  padding: 5px;
-  border-radius:7px;
-  border:0px;
-  background: rgba(0,0,0,.2);
-  width: auto;  
-  color:black;
-  font-size:13px;
-  
+	padding: 5px;
+	border-radius:7px;
+	border:0px;
+	background: rgba(1,1,1,0.6);
+	width: auto;  
+	color: #e74c3c;
+	font-size:13px;
+
 }
 
 .loginbar:focus {
-  outline-color: rgba(0,0,0,0);
-  background: rgba(0,0,0,.95);
-  color: #e74c3c;
+	outline-color: rgba(0,0,0,0);
+	background: rgba(0,0,0,.95);
+	color: #e74c3c;
 }
 
 .btn-danger{
@@ -54,11 +54,23 @@ if(isset($_POST['login'])){
 	padding: 3px 8px 8px 8px;
 	color: #000000;
 }
+
+.btn-primary{
+	height: 27px;
+	padding: 3px 8px 8px 8px;
+	color: #000000;
+	margin-top: 5px;
+}
+
 </style>
 
-
-<form action="" method="post">
-	<input  class="loginbar" name="username" placeholder="Username" data-required="required" required >
-	<input  class="loginbar" type="password" placeholder="Password" name="password" data-required="required" required>
-	<button class="btn btn-danger" type="submit" name="login">Login</button>
-</form>
+<div style="margin-top:10px;text-align: -webkit-right;">
+	<form action="" method="post">
+		<input  class="loginbar" name="username" placeholder="Username" data-required="required" required >
+		<input  class="loginbar" type="password" placeholder="Password" name="password" data-required="required" required>
+		<button class="btn btn-danger" type="submit" name="login">Login</button>
+	</form>
+	<form action="register.php" method="post">
+		<button class="btn btn-primary " type="submit" name="gotoRegisForm">Register</button>
+	</form>
+	<div>

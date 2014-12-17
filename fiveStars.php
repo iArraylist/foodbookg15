@@ -49,11 +49,11 @@ else {
 		?>
 		<div class="rollover">
 			<form action="<?php $_php_self ?>" method="post">
-				<input value="1" type="image" name="rate" id="star1" src="images/emptyStar.png" rel="images/fillStar.png" height="33" width="31">
-				<input value="2" type="image" name="rate" id="star2" src="images/emptyStar.png" rel="images/fillStar.png" height="30" width="28">
+				<input value="1" type="image" name="rate" id="star1" src="images/emptyStar.png" rel="images/fillStar.png" height="28" width="26">
+				<input value="2" type="image" name="rate" id="star2" src="images/emptyStar.png" rel="images/fillStar.png" height="28" width="26">
 				<input value="3" type="image" name="rate" id="star3" src="images/emptyStar.png" rel="images/fillStar.png" height="28" width="26">
-				<input value="4" type="image" name="rate" id="star4" src="images/emptyStar.png" rel="images/fillStar.png" height="24" width="22">
-				<input value="5" type="image" name="rate" id="star5" src="images/emptyStar.png" rel="images/fillStar.png" height="22" width="20">
+				<input value="4" type="image" name="rate" id="star4" src="images/emptyStar.png" rel="images/fillStar.png" height="28" width="26">
+				<input value="5" type="image" name="rate" id="star5" src="images/emptyStar.png" rel="images/fillStar.png" height="28" width="26">
 			</form>
 		</div>
 		<?php

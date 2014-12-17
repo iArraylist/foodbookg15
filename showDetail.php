@@ -1,4 +1,4 @@
-<?php session_start() ?>
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -34,17 +34,15 @@
 	<?php 
 	
 	#query from database
-<<<<<<< HEAD
-	$sql = "select * from recipes where recipe_id = 22 ";
-=======
+
 	$sql = "select * from recipes where recipe_id = '".$_GET['recipe_id']."' ";
->>>>>>> origin/master
+
 	$dbname = "foodbookdb";
 	mysql_query("SET NAMES UTF8"); //show thai 
 	$dbquery = mysql_db_query($dbname, $sql);
 	$faterrayrecipe = mysql_fetch_array($dbquery);
 	$recipe_id = $faterrayrecipe['recipe_id'];
-	$member_id = $faterrayrecipe['member_id'];
+	$member_id = $_SESSION['login_id'];
 
 	?>
 

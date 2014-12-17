@@ -25,7 +25,7 @@
 	<?php 
 	
 	#query from database
-	$sql = "select * from recipes where recipe_id = 18 ";
+	$sql = "select * from recipes where recipe_id = 19 ";
 	$dbname = "foodbookdb";
 	mysql_query("SET NAMES UTF8"); //show thai 
 	$dbquery = mysql_db_query($dbname, $sql);
@@ -146,7 +146,7 @@
 					echo "<br><label>รูปภาพ: </label>";
 					?>
 					<div id="cropstep" class="cropstep">
-						<img src="images/food_img/<?php echo $faterrayrecipe['picture'] ;?>" />
+						<img src="images/food_img/<?php echo $resultData['picture'] ;?>" />
 						</div><?php
 						echo "<br><label>วิธีทำ: </label>" . $resultData['howTo'];
 						echo "<br>";

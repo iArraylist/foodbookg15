@@ -7,22 +7,41 @@
 	<link href="css/bootstrap-tagsinput.css" rel="stylesheet">
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 	<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" href="css/addFood.css">
+
+		<link rel="stylesheet" type="text/css" href="css/footer.css">
+		<link rel="stylesheet" type="text/css" href="css/addFoodV2.css">
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.js"></script>
 	<script src="js/bootstrap-tagsinput.js"></script>
 	<script src="js/bootstrap-tagsinput-angular.js"></script>
 	<script src="js/bootstrap-typeahead.js"></script>
 	<script src="js/jquery.sortable.js"></script>
+		<script src="js/wow.min.js"></script>
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-	
+		<link href="css/animate.css" rel='stylesheet' type='text/css' />
+	<script>
+		new WOW().init();
+	</script>
+	<script type="text/javascript" src="js/move-top.js"></script>
+	<script type="text/javascript" src="js/easing.js"></script>
+	<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+				});
+			});
+	</script>
 </head>
 <body>
-	<?php
-	include "confic.inc.php";
-	include "header.php";
+<div class="container">
+	<div class="r-header-container">
+	
+	</div>
+	
+	<?php 
+	include "navbarV2.php";
 	?>
-
 	<?php
 	function check_data($sql){
 		#check data success??
@@ -120,9 +139,8 @@
 		<form action="addFood.php" method="post" enctype="multipart/form-data" id="form-id" >
 			<div class="r-addfoodpage">
 				<div class="container">
-					<div class="r-addfoodpage-1">
-						<a href="#">เพิ่มรายการอาหาร</a><br>
-						<i class="fa fa-caret-down fa-5x" style="height: 50px;"></i>
+					<div class="r-img wow bounceIn animated">
+					<img id="himg" src="addfood.png" alt="">
 					</div>
 					<div class="form-addfood">
 						<h6 style="color:red;">* จำเป็น</h6>
@@ -437,13 +455,11 @@
 
 
 	<!---------------------------------------------------------->
-	<div class="footer">
-	</div>	
-	<div class="r-header-container-2">
-		<div class="container">
-			<p>2014 All rights Reserved | Template มั่วๆ by โจ๋วววววววววว</p>
-		</div>
-	</div>
+	<?php 
+		include "footer.html";
+	?>
+	<!---------------------------------------------------------->
+</div>
 
 </body>
 </html>

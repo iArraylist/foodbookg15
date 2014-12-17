@@ -8,7 +8,7 @@
 	<link href="css/bootstrap-tagsinput.css" rel="stylesheet">
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 	<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" href="css/showDetail.css">
+	<link rel="stylesheet" type="text/css" href="css/showDetail2.css">
 	<script src="js/jquery.min.js"></script>
 	<script src="js/jquery-2.1.1.min.js"></script>
 
@@ -28,7 +28,7 @@
 <body>
 	<?php
 	include "confic.inc.php";
-	include "header.php";
+	include "navbarV2.php";
 	?>
 
 	<?php 

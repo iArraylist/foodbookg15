@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta charset="UTF-8">
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -38,47 +40,12 @@
 	<p>
 		<img class="login" src="LOGIN_ORI.png" alt="">
 	</p>
-
-
-	<div class="menu-bar">
-		<nav>
-			<ul>
-				<li>
-					<a href="#">หน้าหลัก</a>
-				</li>
-				<li>
-					|
-				</li>
-				<li class="dropdown">
-          			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">เมนูอาหาร<span class="caret"></span></a>
-          			<ul class="dropdown-menu" role="menu">
-            			<li><a id="r-menu-drop" href="#">เมนูอาหารต้ม</a></li>
-            			<li><a id="r-menu-drop" href="#">เมนูอาหารผัด</a></li>
-            			<li><a id="r-menu-drop" href="#">เมนูอาหารแกง</a></li>
-            			<li><a id="r-menu-drop" href="#">เมนูอาหารทอด</a></li>
-            			<li><a id="r-menu-drop" href="#">หอมอร่อยในพริบตา</a></li>
-          			</ul>
-        		</li>
-				<li>
-					|
-				</li>
-				<li>
-					<a href="#">อาหารที่ได้รับความนิยม</a>
-				</li>
-				<li>
-					|
-				</li>
-				<li>
-					<a href="#">ติดต่อเรา</a>
-				</li>
-			</ul>
-		</nav>
-	</div>
-	<!------------------------------------------------------------------------------>
 	
-	<!-- <p>
-		<img src="MENU_01.png">
-	</p> -->
+
+	<?php
+	include "confic.inc.php";
+	include "navbarV2.php";
+	?>
 	<section id="r-search">
 			<div class="content">
 				<h2>Search Here</h2>
@@ -144,11 +111,10 @@
 					<div class="clearfix"></div>
 				</div>
 	</div>
+	<!------------------------------------------------------------>
 
+</div>	
 
-	<!------------------------------------------------>
-
-</div>
-
+	
 </body>
 </html>

@@ -60,10 +60,22 @@
 
 								<h5 id="username">By <?php echo $fetcharray['username'] ;?></h5>
 								<div class="menutype-rating">
-									<span>rating</span>
-									<a href="#">
-										<img src="star1.png" alt="">
-									</a>
+									<kbd style="background-color:yellow;color:#000;">rating</kbd>
+									<?php 
+									$getAvgRateByRecipeId = "select * from recipes_ranking where recipe_id ='$fetcharray[recipe_id]'";
+									$dbname = "foodbookdb";
+									$dbqueryByCategory = mysql_db_query($dbname, $getAvgRateByRecipeId);
+									$row = mysql_fetch_array($dbqueryByCategory);
+
+									if($row{'average_rate'}==0){
+										echo "ยังไม่มีการโหวต";
+
+									}
+									else{
+										echo round($row{'average_rate'},1);
+									}
+
+									?>
 								</div>
 								<h5>Tag 
 									<?php 

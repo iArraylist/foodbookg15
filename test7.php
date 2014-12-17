@@ -9,6 +9,21 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="js/docs.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<script src="js/wow.min.js"></script>
+	<link href="css/animate.css" rel='stylesheet' type='text/css' />
+	<script>
+		new WOW().init();
+	</script>
+	<script type="text/javascript" src="js/move-top.js"></script>
+	<script type="text/javascript" src="js/easing.js"></script>
+	<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+				});
+			});
+	</script>
 </head>
 <body>
 <?php 
@@ -17,7 +32,7 @@
 <div class="menutype">
 	<div class="container">
 		<div class="menutype-menu-content">
-			<div class="menutype-menu-content-head">
+			<div class="menutype-menu-content-head wow bounceIn animated" style="visibility: visible; -webkit-animation: bounceIn 0.4s;">
 				<?php 
 					$cate_type = $_GET['cate_type'];
 				?>
@@ -32,7 +47,7 @@
 					while ($num_count < $num_rows){
 						$fetcharray = mysql_fetch_array($dbquery);
 						$num_count = $num_count+1; ?>
-				<div class="menutype-menu-grid">
+				<div class="menutype-menu-grid wow fadeInRight" data-wow-delay="0.4s">
 					<div class="menutype-menu-grid-sub">
 						<div class="col-md-3">
 							<img src="test2.jpg " class="img-responsive" alt="">

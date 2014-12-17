@@ -102,15 +102,17 @@ background: #F64747;
  }
   .r-menupage-1{
  	text-align: center;
- 	padding-bottom: 50px;
+ 	padding-bottom: 40px;
+	padding-left: 12px;
  }
   .r-menupage .r-menupage-1 a{
- 	font-size: 36px;
+ 	font-size: 26px;
  	font-weight: 400;
- 	color: #F64747;
+ 	color: black;
  	border: 5px solid;
- 	padding: 13px 30px;
- 	text-decoration: none
+ 	padding: 10px 50px;
+ 	text-decoration: none;
+ 	margin-left: -25px;
  }
 .fa {
 	margin-top: -5px;
@@ -119,12 +121,16 @@ background: #F64747;
 .r-menupage-menu{
 
 }
+.r-menupage-2{
+	
+}
 .r-menupage-menu-sub{
 	display: block;
 	width: 30%;
 	float: left;
 	margin: 0 4% 5% 0;
 	background: white;
+	border-radius: 15px;
 	border: 1px solid #DBDBDB;
 }
 .r-menupage-menu-sub label {
@@ -132,13 +138,35 @@ background: #F64747;
 	font-size: 17.37px;
 	color: #F64747;
 	cursor: pointer;
+	margin-bottom: 0px; 
 }
 .r-menupage-menu-sub:hover label {
 
-
+	margin-bottom: 0px; 
 	color: white;
 	background: #F64747;
 
+}
+.r-menupage-text h4 ,h5, h6{
+	text-align: center;
+}
+.r-menupage-text h4 a{
+	text-decoration: none;
+	color: black;
+}
+.r-menupage-text h4 a:hover{
+	text-decoration: none;
+	color: #FF3A3A;
+	transition:0.3s;
+}
+.r-menupage-text h5 a{
+	text-decoration: none;
+	color: black;
+}
+.r-menupage-text h5 a:hover{
+	text-decoration: none;
+	color:#FD5F5F;
+	transition:0.3s;
 }
 .nth{
 	margin-right: 0;

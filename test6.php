@@ -26,47 +26,9 @@
 	</script>
 </head>
 <body>
-<div class="r-header-container">
-	
-</div>
-
-<div class="r-menu">
-	<div class="container">
-	<nav>
-		<ul>
-			<li>
-				<a href="#">หน้าหลัก</a>
-			</li>
-			<li>
-				|
-			</li>
-			<li class="dropdown">
-          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">เมนูอาหาร<span class="caret"></span></a>
-          		<ul class="dropdown-menu" role="menu">
-            		<li><a id="r-menu-drop" href="#">เมนูอาหารต้ม</a></li>
-            		<li><a id="r-menu-drop" href="#">เมนูอาหารผัด</a></li>
-            		<li><a id="r-menu-drop" href="#">เมนูอาหารแกง</a></li>
-            		<li><a id="r-menu-drop" href="#">เมนูอาหารทอด</a></li>
-            		<li><a id="r-menu-drop" href="#">หอมอร่อยในพริบตา</a></li>
-          		</ul>
-        	</li>
-			<li>
-				|
-			</li>
-			<li>
-				<a href="#">อาหารที่ได้รับความนิยม</a>
-			</li>
-			<li>
-				|
-			</li>
-			<li>
-				<a href="#">ติดต่อเรา</a>
-			</li>
-		</ul>
-		</nav>
-	</div>
-</div>
-<!---------------------------------------------------------->
+<?php 
+	include "navbar.php";
+?>
 <div class="r-menupage">
 	<div class="container">
 		<div class="r-menupage-1 wow fadeInRight animated" style="visibility: visible; -webkit-animation: fadeInRight 1s;">
@@ -112,24 +74,6 @@
 	<!--------------------------------------------------> 
 	</div>
 </div>
-<!---------------------------------------------------------->
-
-
-
-
-
-
-<!---------------------------------------------------------->
-<div class="footer">
 	
-
-</div>	
-<div class="r-header-container-2">
-	<div class="container">
-		<p>2014 All rights Reserved | Template มั่วๆ by โจ๋วววววววววว</p>
-	</div>
-</div>
-
-
 </body>
 </html>

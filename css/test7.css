@@ -156,3 +156,8 @@ color: #F22613;
 	color: white;
 	margin-top: 40px;
 }
+#more-button:hover{
+	color: white;
+	background-color: #CF000F;
+	transition: 0.5s;
+}

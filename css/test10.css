@@ -1,0 +1,11 @@
+@font-face {
+  font-family: sukhumvit;
+  src: url('../sukhumvitset-text-webfont.ttf') format("truetype");
+}
+.container{
+	width: 960px;
+}
+body {
+	font-family: sukhumvit;
+
+}

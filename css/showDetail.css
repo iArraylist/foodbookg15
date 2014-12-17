@@ -78,3 +78,15 @@ body {
 
 .cropstep { width: 650px; height: 350px; overflow: hidden; }
 .cropstep img { width: 100%; }
+
+
+.fav_checkbox {
+	width: 40px;
+	height: 40px;
+	background: url("../images/dieheart.png") no-repeat scroll 0 0 transparent; ;
+}
+.fav_checkbox.checked {
+	width: 40px;
+	height: 40px;
+	background: url("../images/heart.png") no-repeat scroll 0 0 transparent; ;
+}

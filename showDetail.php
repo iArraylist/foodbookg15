@@ -42,6 +42,56 @@
 				<i class="fa fa-caret-down fa-5x" style="height: 50px;"></i>
 			</div>
 			<div class="form-showdetail">
+				
+				<?php 
+				$favsql="select * FROM favorites WHERE recipe_id='$recipe_id' AND member_id='$member_id'";
+				$dbquery = mysql_db_query($dbname, $favsql);
+				if(mysql_num_rows($dbquery) == 1){
+					?> <input type="checkbox" class="input_fav_checkbox" checked name="fav" id="<?php echo $recipe_id; ?>" /> <?php
+				} else{
+					?> <input type="checkbox" class="input_fav_checkbox" name="fav" id="<?php echo $recipe_id; ?>" /> <?php
+				}
+				?>
+				
+				<script>
+
+				$('.input_fav_checkbox').each(function(){
+					$(this).hide().after('<div class="fav_checkbox" />');
+					if(document.getElementById($('.input_fav_checkbox').attr('id')).checked){
+						console.log("C");
+						$('.fav_checkbox').toggleClass('checked').prev().prop('checked',$(this).is('.checked'));
+					} else console.log("F");
+				});
+
+				$('.fav_checkbox').on('click',function(){
+					$(this).toggleClass('checked').prev().prop('checked',$(this).is('.checked'));
+
+					var id = $('.input_fav_checkbox').attr('id');
+
+					if($(this).is('.checked')) {
+						var favorite = 1;
+					} else {
+						var favorite = 0;
+					}
+					console.log(id);
+					console.log(favorite);
+					// var url = 'fav_update.php?id='+id+'&favorite='+favorite;
+					// window.location.href = url;
+					// return false;
+
+					$.ajax({
+						url: "fav_update.php",
+						type: "GET",
+						data: { 'id': id, 'favorite': favorite },                   
+						
+					});
+
+				console.log("blah blah");
+			});
+
+
+				</script>
+				
 				<label>ชื่อรายการอาหาร: </label><?php echo " " . $faterrayrecipe['recipe_name']; ?><br>
 				<label>รายละเอียดคร่าวๆ: </label><?php echo " " . $faterrayrecipe['descripShort']; ?><br>
 				<label>รูปภาพ</label>
@@ -96,27 +146,27 @@
 					echo "<br><label>รูปภาพ: </label>";
 					?>
 					<div id="cropstep" class="cropstep">
-					<img src="images/food_img/<?php echo $faterrayrecipe['picture'] ;?>" />
-					</div><?php
-					echo "<br><label>วิธีทำ: </label>" . $resultData['howTo'];
-					echo "<br>";
-				}
-				?>
+						<img src="images/food_img/<?php echo $faterrayrecipe['picture'] ;?>" />
+						</div><?php
+						echo "<br><label>วิธีทำ: </label>" . $resultData['howTo'];
+						echo "<br>";
+					}
+					?>
 
 
+				</div>
 			</div>
 		</div>
-	</div>
 
 
-	<!---------------------------------------------------------->
-	<div class="footer">
-	</div>	
-	<div class="r-header-container-2">
-		<div class="container">
-			<p>2014 All rights Reserved | Template มั่วๆ by โจ๋วววววววววว</p>
+		<!---------------------------------------------------------->
+		<div class="footer">
+		</div>	
+		<div class="r-header-container-2">
+			<div class="container">
+				<p>2014 All rights Reserved | Template มั่วๆ by โจ๋วววววววววว</p>
+			</div>
 		</div>
-	</div>
 
-</body>
-</html>
+	</body>
+	</html>

@@ -8,62 +8,14 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/test7.css">
+	<link rel="stylesheet" type="text/css" href="css/navbar.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="r-header-container">
-	
-</div>
 
-<div class="r-menu">
-	<div class="container">
-	<nav>
-		<ul>
-			<li>
-				<a href="#">หน้าหลัก</a>
-			</li>
-			<li>
-				|
-			</li>
+<?php include "navbarV2.php" ?>
 
-			<li class="dropdown">
-          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">เมนูอาหาร<span class="caret"></span></a>
-          		<ul class="dropdown-menu" role="menu">
-            		<li><a id="r-menu-drop" href="#">เมนูอาหารต้ม</a></li>
-            		<li><a id="r-menu-drop" href="#">เมนูอาหารผัด</a></li>
-            		<li><a id="r-menu-drop" href="#">เมนูอาหารแกง</a></li>
-            		<li><a id="r-menu-drop" href="#">เมนูอาหารทอด</a></li>
-            		<li><a id="r-menu-drop" href="#">หอมอร่อยในพริบตา</a></li>
-          		</ul>
-        	</li>
-			<li>
-				|
-			</li>
-
-			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">อาหารที่ได้รับความนิยม<span class="caret"></span></a>
-				<ul class="dropdown-menu" role="menu">
-					<li><a id="r-menu-drop" href="showRanking.php">ทุกประเภท</a></li>
-					<li><a id="r-menu-drop" href="stirFried.php">ประเภทผัด</a></li>
-            		<li><a id="r-menu-drop" href="boil.php">ประเภทต้ม</a></li>
-            		<li><a id="r-menu-drop" href="fry.php">ประเภททอด</a></li>
-            		<li><a id="r-menu-drop" href="steam.php">ประเภทนึ่ง</a></li>
-            		<li><a id="r-menu-drop" href="grill.php">ประเภทปิ้ง/ย่าง</a>
-            		</li>
-            		</ul>
-
-			</li>
-			<li>
-				|
-			</li>
-			<li>
-				<a href="#">ติดต่อเรา</a>
-			</li>
-		</ul>
-		</nav>
-	</div>
-</div>
 <!------------------------------------------------------------>
 <div class="menutype">
 <div class="container">
@@ -71,6 +23,12 @@
 	<div class="menutype-menu-content-head">
 		<a id="head" href="#">เมนูอาหารประเภทปิ้ง/ย่าง</a>
 	</div>
+
+
+
+
+
+
 
 <?php
 	

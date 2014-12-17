@@ -137,6 +137,9 @@
 		<form action="" method="post" enctype="multipart/form-data" id="form-id" >
 			<!-- <div class="r-addfoodpage"> -->
 				<!-- <div class="container"> -->
+				<div class="r-img">
+				<img src="editfood.png" alt="">
+				</div>
 					<div class="r-addfoodpage-1">
 						<!-- <a href="#">แก้ไขรายการอาหาร</a><br>
 						<i class="fa fa-caret-down fa-5x" style="height: 50px;"></i> -->

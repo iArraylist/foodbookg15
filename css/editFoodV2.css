@@ -109,6 +109,7 @@ body {
 	margin-bottom: 20px;
 	display: block;
 	border-radius: 5px;
+	margin-top: 10px;
 
 }
 
@@ -183,4 +184,11 @@ li.sortable-placeholder {
 }
 .form-control{
 	width: 62%;
+}
+img {
+	width: 50%;
+	height: 240px;
+}
+.r-img{
+	text-align: center;	
 }

@@ -61,7 +61,7 @@
 
 				$returnval = mysql_query("INSERT INTO reci_has_ing (recipe_id,ing_id,quantity) VALUES ($recipe_id,$ing_id,'$quantity')");
 				if(! $returnval ){
-				 	die('Could not enter data: ' . mysql_error());
+					die('Could not enter data: ' . mysql_error());
 				} else echo "Entered ingggg successfully";
 			} else echo "f ";
 		}
@@ -80,23 +80,25 @@
 			$k = "imgStep_" . $stepp;
 			$img_step = $_FILES[$k]['name'];
 
+			move_uploaded_file ($_FILES[$k]["tmp_name"],"images/food_img/".$_FILES[$k]["name"]);
+
 			echo $title_step . "t ";
 			echo $howto_step . "h ";
 			echo $img_step . "p ";
-
+			
 			if($title_step != ""){
 				$returnval = mysql_query("INSERT INTO reci_steps (step_title,howTo,picture,recipe_id) VALUES ('$title_step','$howto_step','$img_step',$recipe_id)");
-			if(! $returnval ){
-				die('Could not enter data: ' . mysql_error());
-			}
-			else echo "Entered steppp successfully";
+				if(! $returnval ){
+					die('Could not enter data: ' . mysql_error());
+				}
+				else echo "Entered steppp successfully";
 
 			}
 			
 
 			//title_step_1   uploadPreview_1  howto_step_1
 			
-		
+
 		}
 
 	}
@@ -110,7 +112,7 @@
 			$sql = "INSERT INTO recipes (recipe_name, descripShort, seasoning, member_id, picture)
 			VALUES ('$_POST[foodName]','$_POST[des]','$_POST[seasoning]', '$_SESSION[login_id]', '".$_FILES['imgUp']['name']."')";
 			check_data($sql); 
-		 }
+		}
 		else{ ?>
 
 
@@ -123,7 +125,7 @@
 						<i class="fa fa-caret-down fa-5x" style="height: 50px;"></i>
 					</div>
 					<div class="form-addfood">
-						<h6>* จำเป็น</h6>
+						<h6 style="color:red;">* จำเป็น</h6>
 						<br>
 						<label>ชื่อรายการอาหาร*:</label>
 						<input class="form-control" name="foodName" style="width:100%;display:initial;margin-bottom:15px;" required>
@@ -157,13 +159,13 @@
 								<ul id="Steps" class="handles list">
 									<li id="1"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
 										<div id="div_step_1" >
-											<label>ชื่อขั้นตอน</label>
-											<input type="text" class="form-control" placeholder="พิมพ์ชื่อขั้นตอน" name="title_step_1">
+											<label>ชื่อขั้นตอน*</label>
+											<input type="text" class="form-control" placeholder="พิมพ์ชื่อขั้นตอน" name="title_step_1" required>
 											<label>รูปภาพประกอบ</label><br>
 											<img id="uploadPreview_1" />
 											<input style="margin-bottom:20px" id="uploadImage_1" type="file" name="imgStep_1" onchange="PreviewImage('uploadImage_1','uploadPreview_1');" />
-											<label>วิธีทำ</label>
-											<textarea style="max-width: 578px;" class="form-control" rows="5" placeholder="กรอกวิธีทำ" name="howto_step_1"></textarea>
+											<label>วิธีทำ*</label>
+											<textarea style="max-width: 578px;" class="form-control" rows="5" placeholder="กรอกวิธีทำ" name="howto_step_1" required></textarea>
 										</div>
 									</li>
 								</ul>
@@ -174,7 +176,7 @@
 
 									var labelTitle = document
 									.createElement("label");
-									labelTitle.innerHTML = "ชื่อขั้นตอน";
+									labelTitle.innerHTML = "ชื่อขั้นตอน*";
 
 									var newStep = document
 									.createElement("input");
@@ -184,6 +186,7 @@
 									newStep.setAttribute('class',
 										'form-control');
 									newStep.setAttribute('name', 'title_step_' + s);
+									newStep.setAttribute('required','required');
 
 									var labelPicture = document
 									.createElement("label");
@@ -205,7 +208,7 @@
 
 									var labelHowTo = document
 									.createElement("label");
-									labelHowTo.innerHTML = "วีธีทำ";
+									labelHowTo.innerHTML = "วีธีทำ*";
 
 									var howto = document
 									.createElement("textarea");
@@ -216,6 +219,7 @@
 										'form-control');
 									howto.setAttribute('name', 'howto_step_' + s);
 									howto.setAttribute('rows', '5');
+									howto.setAttribute('required','required');
 
 									var div = document
 									.createElement("div")
@@ -234,11 +238,20 @@
 									.createElement("span");
 									span.setAttribute('class', 'ui-icon ui-icon-arrowthick-2-n-s');
 
+									var btn = document
+									.createElement("button");
+									btn.setAttribute('class', 'btn btn-danger');
+									btn.setAttribute('type', 'button');
+									btn.setAttribute('style', 'float:right;margin-top:-10px;')
+									btn.setAttribute('onclick', 'deletestep('+s+')'); 
+									btn.innerHTML = "ลบ";
+
 									var li = document
 									.createElement("li");
 									li.setAttribute('id', '' + s);
 									li.setAttribute('draggable', true);
 									li.appendChild(span);
+									li.appendChild(btn);
 									li.appendChild(div);
 
 
@@ -256,10 +269,12 @@
 								$('.handles').sortable('refresh');
 								console.log("test");
 
-								
-
 							}
 
+							function deletestep(id) {
+								console.log(id);  
+								document.getElementById(id).remove();
+							};
 
 
 							function PreviewImage(upimgID,imgID) {
@@ -272,7 +287,6 @@
 							};
 
 							</script>
-
 							<button type="button" class="btn btn-defult" style="margin-bottom: 2px; width:100%;" onclick="addSteps()">เพิ่มขั้นตอนทำอาหาร</button>
 
 						</div>
@@ -318,7 +332,7 @@
 								newItem2.setAttribute('style','display:initial;width:140px;margin-left:3px;');
 								newItem2.setAttribute('name', 'ing_amount_' + i);
 								newItem2.setAttribute('placeholder', 'ปริมาณที่ใช้');
-	
+
 
 								var div = document
 								.createElement("div");
@@ -402,7 +416,6 @@
 		});
 
 	});
-
 
 
 	</script>

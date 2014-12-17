@@ -25,7 +25,7 @@
 	<?php 
 	
 	#query from database
-	$sql = "select * from recipes where recipe_id = 19 ";
+	$sql = "select * from recipes where recipe_id = 22 ";
 	$dbname = "foodbookdb";
 	mysql_query("SET NAMES UTF8"); //show thai 
 	$dbquery = mysql_db_query($dbname, $sql);

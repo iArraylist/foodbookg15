@@ -107,31 +107,31 @@ while($row = mysql_fetch_array($dbqueryByCategory)){
 						echo '<img src="images/5.png" alt="">';
 					}
 					else if ($row{'average_rate'} >= 4.5){
-						echo '<img src="images/5.png" alt="">';
+						echo '<img src="images/4-5.png" alt="">';
 					}
 					else if ($row{'average_rate'} >= 4){
 						echo '<img src="images/4.png" alt="">';
 					}
 					else if ($row{'average_rate'} >= 3.5){
-						echo '<img src="images/5.png" alt="">';
+						echo '<img src="images/3-5.png" alt="">';
 					}
 					else if ($row{'average_rate'} >= 3){
 						echo '<img src="images/3.png" alt="">';
 					}
 					else if ($row{'average_rate'} >= 2.5){
-						echo '<img src="images/5.png" alt="">';
+						echo '<img src="images/2-5.png" alt="">';
 					}
 					else if ($row{'average_rate'} >= 2){
 						echo '<img src="images/2.png" alt="">';
 					}
 					else if ($row{'average_rate'} >= 1.5){
-						echo '<img src="images/5.png" alt="">';
+						echo '<img src="images/1-5.png" alt="">';
 					}
 					else if ($row{'average_rate'} >= 1){
 						echo '<img src="images/1.png" alt="">';
 					}
 					else if ($row{'average_rate'} >= 0.5){
-						echo '<img src="images/5.png" alt="">';
+						echo '<img src="images/0-5.png" alt="">';
 					}
 					else if ($row{'average_rate'} >= 0){
 						echo '<img src="images/0.png" alt="">';
@@ -144,7 +144,10 @@ while($row = mysql_fetch_array($dbqueryByCategory)){
 			</div>
 		</div>
 		<div class="col-md-2">
-			<input id="more-button" type="button" value="อ่านต่อ" >
+								<form action="showDetail.php" method="get">
+									<input id="more-button" type="submit" value="อ่านต่อ" >
+									<?php echo "<input type='hidden' name='recipe_id' value='".$row['recipe_id']."'>"; ?>
+								</form>
 		</div>
 	
 		<div class="clearfix">

@@ -81,8 +81,8 @@
 							<input id="more-button" type="submit" value="แก้ไข" >
 						</form>
 
-						<form action="UserFood.php" method="get">
-							<input id="more-button" type="hidden" name= "editFood" value="<?php echo $fetcharray['recipe_id']; ?>" >
+						<form action="UserFood.php" method="post">
+							<input id="more-button" type="hidden" name= "del" value="<?php echo $fetcharray['recipe_id']; ?>" >
 							<input id="more-button" type="submit" value="ลบ" >
 						</form>
 					</div>
@@ -95,6 +95,13 @@
 			<?php	} ?>
 		</div>
 
+		<?php if(isset($_POST["del"])) {
+				$sql2 = "Delete from recipes where recipe_id = '$_POST[del]' ";
+				mysql_query($sql2);
+				mysql_close();
+				header("location:UserFood.php");
+			} 
+		?>
 
 		<?php 
 		include "footer.html";

@@ -115,6 +115,7 @@ body {
 	border-bottom: 1px solid #D7D7D7;
 	margin-bottom: 20px;
 	display: block;
+	margin-top: 10px;
 
 }
 
@@ -186,4 +187,11 @@ li.sortable-placeholder {
 	border: 1px dashed #CCC;
 	height: 30px;
 	background: none;
+}
+img {
+	width: 50%;
+	height: 240px;
+}
+.r-img{
+	text-align: center;	
 }

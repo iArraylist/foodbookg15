@@ -137,7 +137,7 @@
 		<form action="" method="post" enctype="multipart/form-data" id="form-id" >
 			<!-- <div class="r-addfoodpage"> -->
 				<!-- <div class="container"> -->
-				<div class="r-img">
+				<div class="r-img wow bounceIn animated">
 				<img src="editfood.png" alt="">
 				</div>
 					<div class="r-addfoodpage-1">

@@ -133,6 +133,9 @@
 		<form action="addFood.php" method="post" enctype="multipart/form-data" id="form-id" >
 			<!-- <div class="r-addfoodpage"> -->
 				<!-- <div class="container"> -->
+					<div class="r-img wow bounceIn animated">
+					<img src="addfood.png" alt="">
+					</div>
 					<div class="r-addfoodpage-1">
 						<!-- <a href="#">เพิ่มรายการอาหาร</a><br>
 						<i class="fa fa-caret-down fa-5x" style="height: 50px;"></i> -->

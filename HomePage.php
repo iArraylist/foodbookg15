@@ -7,6 +7,7 @@
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/footer.css">
 	<link rel="stylesheet" type="text/css" href="css/test12.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="js/docs.min.js"></script>
@@ -85,7 +86,7 @@
 	<div class="r-rec">
 		<img src="REC_01.png" alt="">
 	</div>
-
+	<div class="row">
 	<div class="col-md-4">
 		<div class="offer">
 			<div class="offer-img">
@@ -127,8 +128,12 @@
 			</div>
 			<div class="clearfix"></div>
 		</div>
+	</div>
 	</div>
 	<!------------------------------------------------------------>
+	<?php 
+		include "footer.html";
+	?>
 
 </div>	
 

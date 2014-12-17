@@ -8,13 +8,20 @@
 	<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="css/showDetail.css">
 	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery-2.1.1.min.js"></script>
+
 	<script src="js/bootstrap.js"></script>
 	<script src="js/bootstrap-tagsinput.js"></script>
-	<script src="js/bootstrap-tagsinput-angular.js"></script>
+	<!-- <script src="js/bootstrap-tagsinput-angular.js"></script>-->
 	<script src="js/bootstrap-typeahead.js"></script>
 	<script src="js/jquery.sortable.js"></script>
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-	
+	<style type="text/css">
+	.static {
+		margin-right: 4px;
+		cursor: default;
+	}
+	</style>
 </head>
 <body>
 	<?php
@@ -25,7 +32,7 @@
 	<?php 
 	
 	#query from database
-	$sql = "select * from recipes where recipe_id = 4 ";
+	$sql = "select * from recipes where recipe_id = '".$_GET['recipe_id']."' ";
 	$dbname = "foodbookdb";
 	mysql_query("SET NAMES UTF8"); //show thai 
 	$dbquery = mysql_db_query($dbname, $sql);
@@ -88,13 +95,24 @@
 
 					console.log("blah blah");
 				});
-
-
-				</script>
-				
+			</script>
+			<?php include 'fiveStars.php' ?>
+				<br>
+				<br>
 				<label>ชื่อรายการอาหาร: </label><?php echo " " . $faterrayrecipe['recipe_name']; ?><br>
 				<label>Rate </label> 
 				<?php include ("showRates.php");?> <br>
+				
+				<?php 
+
+				echo round($row{'average_rate'},1);
+
+
+
+
+
+
+				?>
 
 				<label>รายละเอียดคร่าวๆ: </label><?php echo " " . $faterrayrecipe['descripShort']; ?><br>
 				<label>รูปภาพ</label>
@@ -160,6 +178,13 @@
 			</div>
 		</div>
 	</div>
+
+
+
+
+
+
+
 
 
 	<!---------------------------------------------------------->

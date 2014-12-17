@@ -22,7 +22,7 @@ include_once"confic.inc.php";
 
 
 
-	$getAvgRateByRecipeId = "select * from recipes_ranking where recipe_id ='".$_GET["recipe_id"]."'";
+	$getAvgRateByRecipeId = "select * from recipes_ranking where recipe_id ='".$recipe_id."'";
 	$dbname = "foodbookdb";
 	$dbqueryByCategory = mysql_db_query($dbname, $getAvgRateByRecipeId);
 	$num_rows = mysql_num_rows($dbqueryByCategory);
@@ -67,12 +67,9 @@ include_once"confic.inc.php";
 
 
 
-
-
-
-
 	?>  
 	<?php 
+		echo "จำนวนโหวต" . '('.$row{'number_of_giving_rate'}.')';
 
 	?>
 </body>

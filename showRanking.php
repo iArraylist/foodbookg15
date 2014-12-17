@@ -141,7 +141,7 @@
 							</div>
 						</div>
 						<div class="col-md-2">
-							<form action="showDetail2.php" method="get">
+							<form action="showDetail.php" method="get">
 								<input id="more-button" type="submit" value="อ่านต่อ" >
 								<?php echo "<input type='hidden' name='recipe_id' value='".$row['recipe_id']."'>"; ?>
 							</form>

@@ -1,17 +1,4 @@
-<?php include("confic.inc.php");?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Specific Category</title>
-	<script src="js/jquery-2.1.1.min.js"></script>
-	<style type="text/css">
-	.static {
-		margin-right: 4px;
-		cursor: default;
-	}
-	</style>
-</head>
-<body>
+
 	<?php
 	function check_data($sql){
 		#check data success??
@@ -42,11 +29,11 @@
 	?>
 	<div class="rollover">
 	<form action="<?php $_php_self ?>" method="post">
-		<input value="1" type="image" name="rate" id="1" src="images/emptyStar.png" rel="images/fillStar.png">
-		<input value="2" type="image" name="rate" id="2" src="images/emptyStar.png" rel="images/fillStar.png">
-		<input value="3" type="image" name="rate" id="3" src="images/emptyStar.png" rel="images/fillStar.png">
-		<input value="4" type="image" name="rate" id="4" src="images/emptyStar.png" rel="images/fillStar.png">
-		<input value="5" type="image" name="rate" id="5" src="images/emptyStar.png" rel="images/fillStar.png">
+		<input value="1" type="image" name="rate" id="star1" src="images/emptyStar.png" rel="images/fillStar.png">
+		<input value="2" type="image" name="rate" id="star2" src="images/emptyStar.png" rel="images/fillStar.png">
+		<input value="3" type="image" name="rate" id="star3" src="images/emptyStar.png" rel="images/fillStar.png">
+		<input value="4" type="image" name="rate" id="star4" src="images/emptyStar.png" rel="images/fillStar.png">
+		<input value="5" type="image" name="rate" id="star5" src="images/emptyStar.png" rel="images/fillStar.png">
 	</form>
 	</div>
 	<?php
@@ -59,7 +46,7 @@
 			var img_src = "";
 			var new_src = "";
 
-			$("#1").hover(function(){
+			$("#star1").hover(function(){
 			//mouseover
 
 				img_src = $(this).attr('src'); //grab original image
@@ -75,14 +62,14 @@
 				$(this).attr('rel', new_src); //swap images
 			});
 
-			$("#2").hover(function(){
+			$("#star2").hover(function(){
 			//mouseover
 
 				img_src = $(this).attr('src'); //grab original image
 				new_src = $(this).attr('rel'); //grab rollover image
 
-				$("#1").attr('src', new_src); //swap images
-				$("#1").attr('rel', img_src); //swap images
+				$("#star1").attr('src', new_src); //swap images
+				$("#star1").attr('rel', img_src); //swap images
 
 				$(this).attr('src', new_src); //swap images
 				$(this).attr('rel', img_src); //swap images
@@ -90,24 +77,24 @@
 			},
 			function(){
 			//mouse out
-				$("#1").attr('src', img_src); //swap images
-				$("#1").attr('rel', new_src); //swap images
+				$("#star1").attr('src', img_src); //swap images
+				$("#star1").attr('rel', new_src); //swap images
 
 				$(this).attr('src', img_src); //swap images
 				$(this).attr('rel', new_src); //swap images
 			});
 
-			$("#3").hover(function(){
+			$("#star3").hover(function(){
 			//mouseover
 
 				img_src = $(this).attr('src'); //grab original image
 				new_src = $(this).attr('rel'); //grab rollover image
 
-				$("#1").attr('src', new_src); //swap images
-				$("#1").attr('rel', img_src); //swap images
+				$("#star1").attr('src', new_src); //swap images
+				$("#star1").attr('rel', img_src); //swap images
 
-				$("#2").attr('src', new_src); //swap images
-				$("#2").attr('rel', img_src); //swap images
+				$("#star2").attr('src', new_src); //swap images
+				$("#star2").attr('rel', img_src); //swap images
 
 				$(this).attr('src', new_src); //swap images
 				$(this).attr('rel', img_src); //swap images
@@ -115,30 +102,30 @@
 			},
 			function(){
 			//mouse out
-				$("#1").attr('src', img_src); //swap images
-				$("#1").attr('rel', new_src); //swap images
+				$("#star1").attr('src', img_src); //swap images
+				$("#star1").attr('rel', new_src); //swap images
 
-				$("#2").attr('src', img_src); //swap images
-				$("#2").attr('rel', new_src); //swap images
+				$("#star2").attr('src', img_src); //swap images
+				$("#star2").attr('rel', new_src); //swap images
 
 				$(this).attr('src', img_src); //swap images
 				$(this).attr('rel', new_src); //swap images
 			});
 
-			$("#4").hover(function(){
+			$("#star4").hover(function(){
 			//mouseover
 
 				img_src = $(this).attr('src'); //grab original image
 				new_src = $(this).attr('rel'); //grab rollover image
 
-				$("#1").attr('src', new_src); //swap images
-				$("#1").attr('rel', img_src); //swap images
+				$("#star1").attr('src', new_src); //swap images
+				$("#star1").attr('rel', img_src); //swap images
 
-				$("#2").attr('src', new_src); //swap images
-				$("#2").attr('rel', img_src); //swap images
+				$("#star2").attr('src', new_src); //swap images
+				$("#star2").attr('rel', img_src); //swap images
 
-				$("#3").attr('src', new_src); //swap images
-				$("#3").attr('rel', img_src); //swap images
+				$("#star3").attr('src', new_src); //swap images
+				$("#star3").attr('rel', img_src); //swap images
 
 				$(this).attr('src', new_src); //swap images
 				$(this).attr('rel', img_src); //swap images
@@ -146,36 +133,36 @@
 			},
 			function(){
 			//mouse out
-				$("#1").attr('src', img_src); //swap images
-				$("#1").attr('rel', new_src); //swap images
+				$("#star1").attr('src', img_src); //swap images
+				$("#star1").attr('rel', new_src); //swap images
 
-				$("#2").attr('src', img_src); //swap images
-				$("#2").attr('rel', new_src); //swap images
+				$("#star2").attr('src', img_src); //swap images
+				$("#star2").attr('rel', new_src); //swap images
 
-				$("#3").attr('src', img_src); //swap images
-				$("#3").attr('rel', new_src); //swap images
+				$("#star3").attr('src', img_src); //swap images
+				$("#star3").attr('rel', new_src); //swap images
 
 				$(this).attr('src', img_src); //swap images
 				$(this).attr('rel', new_src); //swap images
 			});
 
-			$("#5").hover(function(){
+			$("#star5").hover(function(){
 			//mouseover
 
 				img_src = $(this).attr('src'); //grab original image
 				new_src = $(this).attr('rel'); //grab rollover image
 
-				$("#1").attr('src', new_src); //swap images
-				$("#1").attr('rel', img_src); //swap images
+				$("#star1").attr('src', new_src); //swap images
+				$("#star1").attr('rel', img_src); //swap images
 
-				$("#2").attr('src', new_src); //swap images
-				$("#2").attr('rel', img_src); //swap images
+				$("#star2").attr('src', new_src); //swap images
+				$("#star2").attr('rel', img_src); //swap images
 
-				$("#3").attr('src', new_src); //swap images
-				$("#3").attr('rel', img_src); //swap images
+				$("#star3").attr('src', new_src); //swap images
+				$("#star3").attr('rel', img_src); //swap images
 
-				$("#4").attr('src', new_src); //swap images
-				$("#4").attr('rel', img_src); //swap images
+				$("#star4").attr('src', new_src); //swap images
+				$("#star4").attr('rel', img_src); //swap images
 
 				$(this).attr('src', new_src); //swap images
 				$(this).attr('rel', img_src); //swap images
@@ -184,27 +171,25 @@
 			function(){
 			//mouse out
 				
-				$("#1").attr('src', img_src); //swap images
-				$("#1").attr('rel', new_src); //swap images
+				$("#star1").attr('src', img_src); //swap images
+				$("#star1").attr('rel', new_src); //swap images
 
-				$("#2").attr('src', img_src); //swap images
-				$("#2").attr('rel', new_src); //swap images
+				$("#star2").attr('src', img_src); //swap images
+				$("#star2").attr('rel', new_src); //swap images
 
-				$("#3").attr('src', img_src); //swap images
-				$("#3").attr('rel', new_src); //swap images
+				$("#star3").attr('src', img_src); //swap images
+				$("#star3").attr('rel', new_src); //swap images
 
-				$("#4").attr('src', img_src); //swap images
-				$("#4").attr('rel', new_src); //swap images
+				$("#star4").attr('src', img_src); //swap images
+				$("#star4").attr('rel', new_src); //swap images
 
 				$(this).attr('src', img_src); //swap images
 				$(this).attr('rel', new_src); //swap images
 			});
 			//preload images
 			var cacheImage = document.createElement('img');
-			cacheImage.src = $("#1").attr('rel');
+			cacheImage.src = $("#star1").attr('rel');
 		
 		});
 
 	</script>
-</body>
-</html>

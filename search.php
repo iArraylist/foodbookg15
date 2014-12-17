@@ -1,48 +1,61 @@
-
-
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Foodbook</title>
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-	<link href="css/font-awesome.min.css" rel="stylesheet">
-	<link href="css/soponCss.css" rel="stylesheet">
+	<meta charset="UTF-8">
+	<title></title>
 	<link href="css/bootstrap-tagsinput.css" rel="stylesheet">
-	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.js"></script>
 	<script src="js/bootstrap-tagsinput.js"></script>
 	<script src="js/bootstrap-tagsinput-angular.js"></script>
 	<script src="js/bootstrap-typeahead.js"></script>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/categoryType.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="js/docs.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/wow.min.js"></script>
+	<link href="css/animate.css" rel='stylesheet' type='text/css' />
+	<script>
+	new WOW().init();
+	</script>
+	<script type="text/javascript" src="js/move-top.js"></script>
+	<script type="text/javascript" src="js/easing.js"></script>
+	<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+		});
+	});
+	</script>
 </head>
 <body>
+	<div class="container">
+		<?php 
+		include "navbarV2.php";
+		?>
 
-	<?php
-	include "confic.inc.php";
-	include_once"header.php";
-	?>
-	<?php
+		<?php
 
-	$recipes=array();
+		$recipes=array();
 
-	if(!isset($_POST['s_menus'])){
-	$s_ingrediants=explode(",", $_POST['s_ingrediants']);
+		if(!isset($_GET['s_menus'])){
+			$s_ingrediants=explode(",", $_GET['s_ingrediants']);
 
 	//$cat01=array();
 	//$cat02=array();
 	//$cat03=array();
-	$ingrediants=array();
-	
-	
+			$ingrediants=array();
 
-	for ($count=0;$count<count($s_ingrediants);$count++) {
 
-		$ing=$s_ingrediants[$count];
-		$result=mysql_query("SELECT * FROM ingrediants WHERE ing_name='$ing'");
-		$resultData=mysql_fetch_array($result);
-		$ingrediants[]=$resultData['ing_id'];
+
+			for ($count=0;$count<count($s_ingrediants);$count++) {
+
+				$ing=$s_ingrediants[$count];
+				$result=mysql_query("SELECT * FROM ingrediants WHERE ing_name='$ing'");
+				$resultData=mysql_fetch_array($result);
+				$ingrediants[]=$resultData['ing_id'];
 
 		/*
 		if($resultData['ing_category_id']==0000000001){
@@ -89,12 +102,12 @@
 
 	
 	usort($recipes, 'sortByOrder');
-	}
-	else {
-		
-$s_menus=explode(" ", $_POST['s_menus']);
- 	for ($count=0;$count<count($s_menus);$count++) {
- 		$word=$s_menus[$count];
+}
+else {
+
+	$s_menus=explode(" ", $_GET['s_menus']);
+	for ($count=0;$count<count($s_menus);$count++) {
+		$word=$s_menus[$count];
 		$result=mysql_query("SELECT * FROM recipes WHERE recipe_name LIKE '%".$word."%'");
 
 		$rows=mysql_num_rows($result);
@@ -115,41 +128,68 @@ $s_menus=explode(" ", $_POST['s_menus']);
 
 
 
- 	}
+	}
 }
 
-	?>
+?>
 
 
-	<div class="container">
-		<h1 id="r-foodheader">Food</h1>
-		<table class="table table-bordered table-hover">
-			<tr id="r-texttable">
+<div class="menutype-menu-content">
+	<?php
+	foreach ($recipes as $value) {
+		$recipe_id=$value[0];
+		$result=mysql_query("SELECT * FROM recipes WHERE recipe_id='$recipe_id'");
+		while ($resultData=mysql_fetch_array($result)){
+			?>
+			<div class="menutype-menu-grid wow fadeInRight" data-wow-delay="0.4s">
+				<div class="menutype-menu-grid-sub">
+					<div class="col-md-3">
+						<img src="images/food_img/<?php echo $resultData['picture'] ;?>" class="img-responsive" alt="">
+					</div>
+					<div class="col-md-7">
+						<div class="menutype-menu-grid-sub-title">
+							<h4>
+								<a id = "title" href="#"><?php echo $resultData['recipe_name'] ; ?></a>
+							</h4>
+							<h5 id="username">By <?php echo $resultData['member_id'] ;?></h5>
+							<div class="menutype-rating">
+								<span>rating</span>
+								<a href="#">
+									<img src="star1.png" alt="">
+								</a>
+							</div>
+							<h5>Tag 
+								<?php 
+								$result = mysql_query("select * from reci_has_ing join ingrediants on reci_has_ing.ing_id = ingrediants.ing_id where reci_has_ing.recipe_id = '$resultData[recipe_id]'");
+								while($resultData = mysql_fetch_array($result)){ ?>
+								<kbd><?php echo $resultData['ing_name']; ?></kbd><?php
+							}?>
+						</h5>
 
-				<td class="col-md-1">Food Picture</td>
-				<td class="col-xs-6 col-sm-3">Food Name</td>
-				<td class="col-xs-6 col-sm-3">Food Desc</td>
-			</tr>
-			<?php
-			foreach ($recipes as $value) {
-				$recipe_id=$value[0];
-				$result=mysql_query("SELECT * FROM recipes WHERE recipe_id='$recipe_id'");
-				while ($resultData=mysql_fetch_array($result)){
-					?>
-					<tr class="r-row">
-						<td ><img class="r-img" src="images/food_img/<?php echo $resultData['picture'] ;?>"></td>
-						<td ><a href="showDetail.php?recipe_id=<?php echo $resultData['recipe_id'];?>"><?php echo $resultData['recipe_name'] ; ?> </a></td>
-						<td ><?php echo $resultData['descripShort'] ; ?> </td>
-					</tr>
-					<?php
-				}}
-				?>
+					</div>
+				</div>
+				<div class="col-md-2">
+					<form action="showDetail.php" method="get">
+						<input id="more-button" type="hidden" name= "recipe_id" value="<?php echo $recipe_id; ?>" >
+						<input id="more-button" type="submit" value="อ่านต่อ" >
+					</form>
+				</div>
 				
-			</table>
+				<div class="clearfix">
+				</div>
+			</div>
 		</div>
 
+		<?php	}} ?>
+	</div>
 
-		<?php
+
+
+
+
+
+
+	<?php
 	
 
 		// function in_array_recur($needle, $haystack, $strict = false) {
@@ -162,31 +202,35 @@ $s_menus=explode(" ", $_POST['s_menus']);
 		// 	return false;
 		// }
 
-		function in_array_recursive($recipe_id,$recipes){
-			foreach ($recipes as $key => $value) {
-				if($value[0] === $recipe_id){
-					return true;
-				}
+	function in_array_recursive($recipe_id,$recipes){
+		foreach ($recipes as $key => $value) {
+			if($value[0] === $recipe_id){
+				return true;
 			}
-			return false;
 		}
+		return false;
+	}
 
 
 
-		function searchForId($id, $array) {
-			foreach ($array as $key => $val) {
-				if ($val[0] === $id) {
-					return $key;
-				}
+	function searchForId($id, $array) {
+		foreach ($array as $key => $val) {
+			if ($val[0] === $id) {
+				return $key;
 			}
-			return null;
 		}
+		return null;
+	}
 
-		function sortByOrder($a, $b) {
-			return $b[1] - $a[1];
-		}
+	function sortByOrder($a, $b) {
+		return $b[1] - $a[1];
+	}
 
-		?>
+	?>
 
-	</body>
-	</html>
+
+
+</div>
+
+</body>
+</html>

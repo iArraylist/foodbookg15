@@ -6,9 +6,7 @@
 </div>
 <div class="r-menu">
 	<div class="container">
-	<p>
-		<img src="MENU_01.png">
-	</p>
+	
 	<nav>
 		<ul>
 			<li>

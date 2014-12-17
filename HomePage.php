@@ -36,10 +36,6 @@
 </head>
 <body>
 	<div class="container">
-		<?php
-		include "login.php";
-		?>
-		
 		<div class="main-logo wow bounceIn animated">
 			<p>
 				<img src="LOGO_01.png" alt="">
@@ -57,6 +53,11 @@
 	include "confic.inc.php";
 	include "navbarV2.php";
 	?>
+	<?php
+	if(!isset($_SESSION['login_id'])){
+		include "login.php";
+	}
+		?>
 	<section id="r-search">
 		<div role="tabpanel" style="margin-right:20px;margin-left:20px;">
 

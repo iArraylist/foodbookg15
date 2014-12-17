@@ -76,9 +76,14 @@
 						</div>
 					</div>
 					<div class="col-md-2">
-						<form action="showDetail.php" method="get">
-							<input id="more-button" type="hidden" name= "recipe_id" value="<?php echo $fetcharray['recipe_id']; ?>" >
-							<input id="more-button" type="submit" value="อ่านต่อ" >
+						<form action="editFood.php" method="get">
+							<input id="more-button" type="hidden" name= "editFood" value="<?php echo $fetcharray['recipe_id']; ?>" >
+							<input id="more-button" type="submit" value="แก้ไข" >
+						</form>
+
+						<form action="UserFood.php" method="get">
+							<input id="more-button" type="hidden" name= "editFood" value="<?php echo $fetcharray['recipe_id']; ?>" >
+							<input id="more-button" type="submit" value="ลบ" >
 						</form>
 					</div>
 

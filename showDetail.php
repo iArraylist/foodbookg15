@@ -42,8 +42,6 @@
 	$dbquery = mysql_db_query($dbname, $sql);
 	$faterrayrecipe = mysql_fetch_array($dbquery);
 	$recipe_id = $faterrayrecipe['recipe_id'];
-	$member_id = $_SESSION['login_id'];
-
 	?>
 
 	<div class="r-showdetailpage">
@@ -55,37 +53,39 @@
 			<div class="form-showdetail">
 				
 				<?php 
-				$favsql="select * FROM favorites WHERE recipe_id='$recipe_id' AND member_id='$member_id'";
-				$dbquery = mysql_db_query($dbname, $favsql);
-				if(mysql_num_rows($dbquery) == 1){
-					?> <input type="checkbox" class="input_fav_checkbox" checked name="fav" id="<?php echo $recipe_id; ?>" /> <?php
-				} else{
-					?> <input type="checkbox" class="input_fav_checkbox" name="fav" id="<?php echo $recipe_id; ?>" /> <?php
+				if(isset($_SESSION['login_id'])){
+					$favsql="select * FROM favorites WHERE recipe_id='$recipe_id' AND member_id='$_SESSION[login_id]'";
+					$dbquery = mysql_db_query($dbname, $favsql);
+					if(mysql_num_rows($dbquery) == 1){
+						?> <input type="checkbox" class="input_fav_checkbox" checked name="fav" id="<?php echo $recipe_id; ?>" /> <?php
+					} else{
+						?> <input type="checkbox" class="input_fav_checkbox" name="fav" id="<?php echo $recipe_id; ?>" /> <?php
+					}
 				}
 				?>
 				
 				<script>
 
-					$('.input_fav_checkbox').each(function(){
-						$(this).hide().after('<div class="fav_checkbox" />');
-						if(document.getElementById($('.input_fav_checkbox').attr('id')).checked){
-							console.log("C");
-							$('.fav_checkbox').toggleClass('checked').prev().prop('checked',$(this).is('.checked'));
-						} else console.log("F");
-					});
+				$('.input_fav_checkbox').each(function(){
+					$(this).hide().after('<div class="fav_checkbox" />');
+					if(document.getElementById($('.input_fav_checkbox').attr('id')).checked){
+						console.log("C");
+						$('.fav_checkbox').toggleClass('checked').prev().prop('checked',$(this).is('.checked'));
+					} else console.log("F");
+				});
 
-					$('.fav_checkbox').on('click',function(){
-						$(this).toggleClass('checked').prev().prop('checked',$(this).is('.checked'));
+				$('.fav_checkbox').on('click',function(){
+					$(this).toggleClass('checked').prev().prop('checked',$(this).is('.checked'));
 
-						var id = $('.input_fav_checkbox').attr('id');
+					var id = $('.input_fav_checkbox').attr('id');
 
-						if($(this).is('.checked')) {
-							var favorite = 1;
-						} else {
-							var favorite = 0;
-						}
-						console.log(id);
-						console.log(favorite);
+					if($(this).is('.checked')) {
+						var favorite = 1;
+					} else {
+						var favorite = 0;
+					}
+					console.log(id);
+					console.log(favorite);
 					// var url = 'fav_update.php?id='+id+'&favorite='+favorite;
 					// window.location.href = url;
 					// return false;
@@ -99,8 +99,14 @@
 
 					console.log("blah blah");
 				});
-			</script>
-			<?php include 'fiveStars.php' ?>
+				</script>
+
+				<?php
+				if(isset($_SESSION['login_id'])){
+					include 'fiveStars.php';
+				}
+
+				?>
 
 				<br>
 				<br>
@@ -132,7 +138,7 @@
 				<br>
 				<label>รายละเอียดคร่าวๆ: </label><?php echo " " . $faterrayrecipe['descripShort']; ?><br>
 				<label>รูปภาพ</label>
-				<div id="crop" class="crop">
+				<div id="cropstep" class="cropstep">
 					<img id="uploadPreview" src="images/food_img/<?php echo $faterrayrecipe['picture'] ;?>" />
 				</div>
 
@@ -180,20 +186,23 @@
 				$rows=mysql_num_rows($dbquery);
 				while ($resultData=mysql_fetch_array($dbquery)) {
 					echo "<br><label>ขั้นตอน: </label>" . $resultData['step_title'];
-					echo "<br><label>รูปภาพ: </label>";
+					if($resultData['picture']!=""){
+						echo "<br><label>รูปภาพ: </label>";
+						?>
+						<div id="cropstep" class="cropstep">
+							<img src="images/food_img/<?php echo $resultData['picture'] ;?>" />
+						</div>
+
+						<?php }
+						echo "<br><label>วิธีทำ: </label>" . $resultData['howTo'];
+						echo "<br>";
+					}
 					?>
-					<div id="cropstep" class="cropstep">
-						<img src="images/food_img/<?php echo $resultData['picture'] ;?>" />
-					</div><?php
-					echo "<br><label>วิธีทำ: </label>" . $resultData['howTo'];
-					echo "<br>";
-				}
-				?>
 
 
+				</div>
 			</div>
 		</div>
-	</div>
 
 
 
@@ -203,14 +212,14 @@
 
 
 
-	<!---------------------------------------------------------->
-	<div class="footer">
-	</div>	
-	<div class="r-header-container-2">
-		<div class="container">
-			<p>2014 All rights Reserved | Template มั่วๆ by โจ๋วววววววววว</p>
+		<!---------------------------------------------------------->
+		<div class="footer">
+		</div>	
+		<div class="r-header-container-2">
+			<div class="container">
+				<p>2014 All rights Reserved | Template มั่วๆ by โจ๋วววววววววว</p>
+			</div>
 		</div>
-	</div>
 
-</body>
-</html>
+	</body>
+	</html>

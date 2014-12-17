@@ -5,35 +5,42 @@
 	<title>Document</title>
 	<meta charset="UTF-8">
 	<title></title>
+	
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="css/test12.css">
+	<link rel="stylesheet" type="text/css" href="css/footer.css">
+	<link rel="stylesheet" type="text/css" href="css/HomePage.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="js/docs.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/wow.min.js"></script>
 	<link href="css/animate.css" rel='stylesheet' type='text/css' />
 	<script>
-		new WOW().init();
+	new WOW().init();
 	</script>
 	<script type="text/javascript" src="js/move-top.js"></script>
 	<script type="text/javascript" src="js/easing.js"></script>
 	<script type="text/javascript">
-			jQuery(document).ready(function($) {
-				$(".scroll").click(function(event){		
-					event.preventDefault();
-					$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
-				});
-			});
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+		});
+	});
 	</script>
+
+	<link href="css/bootstrap-tagsinput.css" rel="stylesheet">
+	<script src="js/bootstrap-tagsinput.js"></script>
+	<script src="js/bootstrap-tagsinput-angular.js"></script>
+	<script src="js/bootstrap-typeahead.js"></script>
 </head>
 <body>
-<div class="container">
-	<div class="main-logo wow bounceIn animated">
-		<p>
-		<img src="LOGO_01.png" alt="">
-		</p>
-	</div>
+	<div class="container">
+		<div class="main-logo wow bounceIn animated">
+			<p>
+				<img src="LOGO_01.png" alt="">
+			</p>
+		</div>
 	<!-- <a id="login" href=""></a>
 	<a id="regis" href=""></a> -->
 
@@ -46,12 +53,31 @@
 	include "confic.inc.php";
 	include "navbarV2.php";
 	?>
+	<?php
+	if(!isset($_SESSION['login_id'])){
+		include "login.php";
+	}
+		?>
 	<section id="r-search">
-			<div class="content">
-				<h2>Search Here</h2>
-				<h5>you can type the ingredient that you have in box below.</h5>
+		<div role="tabpanel" style="margin-right:20px;margin-left:20px;">
+
+			<!-- Nav tabs -->
+			<ul class="nav nav-tabs" role="tablist">
+				<li role="presentation" class="active"><a href="#ByIng" aria-controls="home" role="tab" data-toggle="tab">ค้นหาจากวัตถุดิบ</a></li>
+				<li role="presentation"><a href="#ByMenu" aria-controls="profile" role="tab" data-toggle="tab">ค้นหาจากชื่อเมนูอาหาร</a></li>
+			</ul>
+
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<div role="tabpanel" class="tab-pane fade in active" id="ByIng" style="padding: 15px;">
+					<?php include "searchByIngBar.php"; ?>
+				</div>
+				<div role="tabpanel" class="tab-pane fade" id="ByMenu" style="padding: 15px;">
+					<?php include "searchByMenuBar.php"; ?>
+				</div>
 			</div>
-			
+
+		</div>
 	</section>
 
 	<div class="test"></div>
@@ -66,53 +92,57 @@
 	<div class="r-rec">
 		<img src="REC_01.png" alt="">
 	</div>
-
+	<div class="row">
 	<div class="col-md-4">
-				<div class="offer">
-					<div class="offer-img">
-						<img src="test2.jpg" class="img-responsive" alt="">
-					</div>
-					<div class="offer-text">
-						<h4>Olister Combo pack lorem</h4>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. </p>
-						<input type="button" value="More">
-						<span></span>
-					</div>
-					<div class="clearfix"></div>
-				</div>
+		<div class="offer">
+			<div class="offer-img">
+				<img src="test2.jpg" class="img-responsive" alt="">
+			</div>
+			<div class="offer-text">
+				<h4>Olister Combo pack lorem</h4>
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. </p>
+				<input type="button" value="More">
+				<span></span>
+			</div>
+			<div class="clearfix"></div>
+		</div>
 	</div>
 	<div class="col-md-4">
-				<div class="offer">
-					<div class="offer-img">
-						<img src="test2.jpg" class="img-responsive" alt="">
-					</div>
-					<div class="offer-text">
-						<h4>Olister Combo pack lorem</h4>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. </p>
-						<input type="button" value="More">
-						<span></span>
-					</div>
-					<div class="clearfix"></div>
-				</div>
+		<div class="offer">
+			<div class="offer-img">
+				<img src="test2.jpg" class="img-responsive" alt="">
+			</div>
+			<div class="offer-text">
+				<h4>Olister Combo pack lorem</h4>
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. </p>
+				<input type="button" value="More">
+				<span></span>
+			</div>
+			<div class="clearfix"></div>
+		</div>
 	</div>
 	<div class="col-md-4">
-				<div class="offer">
-					<div class="offer-img">
-						<img src="test2.jpg" class="img-responsive" alt="">
-					</div>
-					<div class="offer-text">
-						<h4>Olister Combo pack lorem</h4>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. </p>
-						<input type="button" value="More">
-						<span></span>
-					</div>
-					<div class="clearfix"></div>
-				</div>
+		<div class="offer">
+			<div class="offer-img">
+				<img src="test2.jpg" class="img-responsive" alt="">
+			</div>
+			<div class="offer-text">
+				<h4>Olister Combo pack lorem</h4>
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. </p>
+				<input type="button" value="More">
+				<span></span>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
 	</div>
 	<!------------------------------------------------------------>
+	<?php 
+		include "footer.html";
+	?>
 
 </div>	
 
-	
+
 </body>
 </html>

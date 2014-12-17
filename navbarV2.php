@@ -2,7 +2,6 @@
 session_start();
 include "confic.inc.php";
 ?>
-<?php session_start() ?>
 <div class="menu-bar">
 	<nav>
 		<ul>

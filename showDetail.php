@@ -51,41 +51,46 @@
 				<i class="fa fa-caret-down fa-5x" style="height: 50px;"></i>
 			</div>
 			<div class="form-showdetail">
-				
-				<?php 
-				if(isset($_SESSION['login_id'])){
-					$favsql="select * FROM favorites WHERE recipe_id='$recipe_id' AND member_id='$_SESSION[login_id]'";
-					$dbquery = mysql_db_query($dbname, $favsql);
-					if(mysql_num_rows($dbquery) == 1){
-						?> <input type="checkbox" class="input_fav_checkbox" checked name="fav" id="<?php echo $recipe_id; ?>" /> <?php
-					} else{
-						?> <input type="checkbox" class="input_fav_checkbox" name="fav" id="<?php echo $recipe_id; ?>" /> <?php
-					}
-				}
-				?>
-				
-				<script>
+				<div class="row">
+					<div class="col-xs-6">
+						<h3><label>ชื่อรายการอาหาร: </label><?php echo " " . $faterrayrecipe['recipe_name']; ?></h3>
+					</div>
+					<div class="col-xs-6" style="text-align: -webkit-right;margin-top:15px;">
+						<?php 
+						if(isset($_SESSION['login_id'])){
+							$favsql="select * FROM favorites WHERE recipe_id='$recipe_id' AND member_id='$_SESSION[login_id]'";
+							$dbquery = mysql_db_query($dbname, $favsql);
+							if(mysql_num_rows($dbquery) == 1){
+								?> <input type="checkbox" class="input_fav_checkbox" checked name="fav" id="<?php echo $recipe_id; ?>" /> <?php
+							} else{
+								?> <input type="checkbox" class="input_fav_checkbox" name="fav" id="<?php echo $recipe_id; ?>" /> <?php
+							}
+						}
 
-				$('.input_fav_checkbox').each(function(){
-					$(this).hide().after('<div class="fav_checkbox" />');
-					if(document.getElementById($('.input_fav_checkbox').attr('id')).checked){
-						console.log("C");
-						$('.fav_checkbox').toggleClass('checked').prev().prop('checked',$(this).is('.checked'));
-					} else console.log("F");
-				});
+						?>
 
-				$('.fav_checkbox').on('click',function(){
-					$(this).toggleClass('checked').prev().prop('checked',$(this).is('.checked'));
+						<script>
 
-					var id = $('.input_fav_checkbox').attr('id');
+						$('.input_fav_checkbox').each(function(){
+							$(this).hide().after('<div class="fav_checkbox" />');
+							if(document.getElementById($('.input_fav_checkbox').attr('id')).checked){
+								console.log("C");
+								$('.fav_checkbox').toggleClass('checked').prev().prop('checked',$(this).is('.checked'));
+							} else console.log("F");
+						});
 
-					if($(this).is('.checked')) {
-						var favorite = 1;
-					} else {
-						var favorite = 0;
-					}
-					console.log(id);
-					console.log(favorite);
+						$('.fav_checkbox').on('click',function(){
+							$(this).toggleClass('checked').prev().prop('checked',$(this).is('.checked'));
+
+							var id = $('.input_fav_checkbox').attr('id');
+
+							if($(this).is('.checked')) {
+								var favorite = 1;
+							} else {
+								var favorite = 0;
+							}
+							console.log(id);
+							console.log(favorite);
 					// var url = 'fav_update.php?id='+id+'&favorite='+favorite;
 					// window.location.href = url;
 					// return false;
@@ -99,18 +104,17 @@
 
 					console.log("blah blah");
 				});
-				</script>
+						</script>
+					</div>
+				</div>
+
 
 				<?php
 				if(isset($_SESSION['login_id'])){
 					include 'fiveStars.php';
 				}
-
 				?>
-
-				<br>
-				<br>
-				<label>ชื่อรายการอาหาร: </label><?php echo " " . $faterrayrecipe['recipe_name']; ?><br>
+				
 				<label>Rate </label> 
 				
 				
@@ -128,20 +132,18 @@
 					echo round($row{'average_rate'},1);
 				}
 				
-
-
-
-
-
-
 				?>
 				<br>
-				<label>รายละเอียดคร่าวๆ: </label><?php echo " " . $faterrayrecipe['descripShort']; ?><br>
-				<label>รูปภาพ</label>
-				<div id="cropstep" class="cropstep">
-					<img id="uploadPreview" src="images/food_img/<?php echo $faterrayrecipe['picture'] ;?>" />
+				<br>
+				<div style="margin-left: 115px;">
+					<div id="cropstep" class="cropstep">
+						<img id="uploadPreview" src="images/food_img/<?php echo $faterrayrecipe['picture'] ;?>" />
+					</div>
 				</div>
-
+				<br>
+				<label>รายละเอียดคร่าวๆ: </label><?php echo " " . $faterrayrecipe['descripShort']; ?><br>
+				
+				<br>
 				<label>ประเภทอาหาร: </label>
 				<?php 
 				$sql = "select * from reci_categories_has_recipes join reci_categories on reci_categories.reci_category_id = reci_categories_has_recipes.reci_category_id where reci_categories_has_recipes.recipe_id=$recipe_id";
@@ -185,9 +187,8 @@
 				$dbquery = mysql_db_query($dbname, $sql);
 				$rows=mysql_num_rows($dbquery);
 				while ($resultData=mysql_fetch_array($dbquery)) {
-					echo "<br><label>ขั้นตอน: </label>" . $resultData['step_title'];
+					echo "<br><br><label>ขั้นตอน: </label>" . $resultData['step_title'];
 					if($resultData['picture']!=""){
-						echo "<br><label>รูปภาพ: </label>";
 						?>
 						<div id="cropstep" class="cropstep">
 							<img src="images/food_img/<?php echo $resultData['picture'] ;?>" />

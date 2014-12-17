@@ -93,16 +93,51 @@ while($row = mysql_fetch_array($dbqueryByCategory)){
 				<h5 id="username">
 				By Username
 				<br>
-				<?php echo "rate: " . round($row{'average_rate'},2);
+				<?php echo "rate: " . round($row{'average_rate'},1);
 					echo "<br>";
-					echo "จำนวนคน: ". $row{'number_of_giving_rate'};
+					echo "จำนวนโหวต: ". $row{'number_of_giving_rate'};
 					?>
 				</h5>
 
 				<div class="menutype-rating">
 					<span>rating</span>
 					<a href="">
-						<img src="star1.png" alt="">
+				<?php 
+					if($row{'average_rate'} == 5){
+						echo '<img src="images/5.png" alt="">';
+					}
+					else if ($row{'average_rate'} >= 4.5){
+						echo '<img src="images/5.png" alt="">';
+					}
+					else if ($row{'average_rate'} >= 4){
+						echo '<img src="images/4.png" alt="">';
+					}
+					else if ($row{'average_rate'} >= 3.5){
+						echo '<img src="images/5.png" alt="">';
+					}
+					else if ($row{'average_rate'} >= 3){
+						echo '<img src="images/3.png" alt="">';
+					}
+					else if ($row{'average_rate'} >= 2.5){
+						echo '<img src="images/5.png" alt="">';
+					}
+					else if ($row{'average_rate'} >= 2){
+						echo '<img src="images/2.png" alt="">';
+					}
+					else if ($row{'average_rate'} >= 1.5){
+						echo '<img src="images/5.png" alt="">';
+					}
+					else if ($row{'average_rate'} >= 1){
+						echo '<img src="images/1.png" alt="">';
+					}
+					else if ($row{'average_rate'} >= 0.5){
+						echo '<img src="images/5.png" alt="">';
+					}
+					else if ($row{'average_rate'} >= 0){
+						echo '<img src="images/0.png" alt="">';
+					}
+			?>
+						
 					</a>
 				</div>
 

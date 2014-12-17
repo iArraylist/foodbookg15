@@ -1,8 +1,8 @@
 <?php include("confic.inc.php");?>
 <!DOCTYPE html>
 <head>
-	<title>--ประเภทผัด--</title>
-<meta charset="UTF-8">
+	<title>Most Popular</title>
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
@@ -64,8 +64,6 @@
 		</nav>
 	</div>
 </div>
-
-
 <!------------------------------------------------------------>
 <div class="menutype">
 <div class="container">
@@ -76,7 +74,7 @@
 
 <?php
 	
-$getRecipeByCategory = "select * from recipes_ranking where reci_category_id = '1'limit 10";
+$getRecipeByCategory = "select * from recipes_ranking where reci_category_id = '3'limit 10";
 $dbname = "foodbookdb";
 $dbqueryByCategory = mysql_db_query($dbname, $getRecipeByCategory);
 while($row = mysql_fetch_array($dbqueryByCategory)){
@@ -95,16 +93,51 @@ while($row = mysql_fetch_array($dbqueryByCategory)){
 				<h5 id="username">
 				By Username
 				<br>
-				<?php echo "rate: " . round($row{'average_rate'},2);
+				<?php echo "rate: " . round($row{'average_rate'},1);
 					echo "<br>";
-					echo "จำนวนคน: ". $row{'number_of_giving_rate'};
+					echo "จำนวนโหวต: ". $row{'number_of_giving_rate'};
 					?>
 				</h5>
 
 				<div class="menutype-rating">
 					<span>rating</span>
 					<a href="">
-						<img src="star1.png" alt="">
+				<?php 
+					if($row{'average_rate'} == 5){
+						echo '<img src="images/5.png" alt="">';
+					}
+					else if ($row{'average_rate'} >= 4.5){
+						echo '<img src="images/5.png" alt="">';
+					}
+					else if ($row{'average_rate'} >= 4){
+						echo '<img src="images/4.png" alt="">';
+					}
+					else if ($row{'average_rate'} >= 3.5){
+						echo '<img src="images/5.png" alt="">';
+					}
+					else if ($row{'average_rate'} >= 3){
+						echo '<img src="images/3.png" alt="">';
+					}
+					else if ($row{'average_rate'} >= 2.5){
+						echo '<img src="images/5.png" alt="">';
+					}
+					else if ($row{'average_rate'} >= 2){
+						echo '<img src="images/2.png" alt="">';
+					}
+					else if ($row{'average_rate'} >= 1.5){
+						echo '<img src="images/5.png" alt="">';
+					}
+					else if ($row{'average_rate'} >= 1){
+						echo '<img src="images/1.png" alt="">';
+					}
+					else if ($row{'average_rate'} >= 0.5){
+						echo '<img src="images/5.png" alt="">';
+					}
+					else if ($row{'average_rate'} >= 0){
+						echo '<img src="images/0.png" alt="">';
+					}
+			?>
+						
 					</a>
 				</div>
 
@@ -130,24 +163,43 @@ while($row = mysql_fetch_array($dbqueryByCategory)){
 
 
 
-<!-- == อาหารประเภทผัด== <br>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+
+== RANKING รวม == <br>
+
+
 
 </body>
-
-
-
+-->
 <?php
 
-// $categoryName = $_POST['categoryName'];
-// echo "=======================";
-// echo "<br>";
-
-
-// $getRecipeByCategory = "select * from recipes_ranking where reci_category_id = '1'limit 2";
+// $getRecipeRankingSql = "select * from recipes_ranking limit 10";
+// #$getRecipeByCategory = "select * from recipes_ranking2 where reci_category_id = $categoryName ";
 // $dbname = "foodbookdb";
+// $dbquery = mysql_db_query($dbname, $getRecipeRankingSql);
 // $dbqueryByCategory = mysql_db_query($dbname, $getRecipeByCategory);
-// while($row = mysql_fetch_array($dbqueryByCategory)){
-
+// #while($row = mysql_fetch_array($dbqueryByCategory)){
+// while($row = mysql_fetch_array($dbquery)){
 	
 // 	echo "Recipe_id". " : " .$row{'recipe_id'}; 
 // 	echo "<br>";
@@ -156,17 +208,20 @@ while($row = mysql_fetch_array($dbqueryByCategory)){
 // 	echo " " .$row{'reci_category'};
 // 	echo "<br>";
 // 	echo " ". "Rate : ". round($row{'average_rate'},2);
+// 	echo "<br>";
+// 	echo "จำนวนคนโหวต: " .$row{'Number_of_giving_rate'};
 // 	#echo "dwedwedw" . $row{'picture'};
 // 	echo "<br>"; 
 // 	if (!is_null($row['picture'])) {
 
 ?>
-<!--
-		<img src="data:image/jpeg;base64, <?php echo base64_encode($row['picture']);?>" />
+
+	<!-- 	<img src="data:image/jpeg;base64, <?php echo base64_encode($row['picture']);?>" />
 		<br>
 		------------------------------------------------------------------------------------------------------------------------------------
-		<br>-->
+		<br> -->
 <?php
 // 	}
 // }
 ?>
+

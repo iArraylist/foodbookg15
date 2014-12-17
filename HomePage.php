@@ -5,6 +5,7 @@
 	<title>Document</title>
 	<meta charset="UTF-8">
 	<title></title>
+	
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/footer.css">
@@ -35,6 +36,10 @@
 </head>
 <body>
 	<div class="container">
+		<?php
+		include "login.php";
+		?>
+		
 		<div class="main-logo wow bounceIn animated">
 			<p>
 				<img src="LOGO_01.png" alt="">

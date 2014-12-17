@@ -58,7 +58,7 @@
 						<div class="col-md-7">
 							<div class="menutype-menu-grid-sub-title">
 								<h4>
-									<a id = "title" href="#"><?php echo $fetcharray['recipe_name'] ;?></a>
+									<a id = "title" href="showDetail.php?recipe_id=<?php echo $fetcharray['recipe_id']; ?>"><?php echo $fetcharray['recipe_name'] ;?></a>
 								</h4>
 								<h5 id="username">By <?php echo $fetcharray['member_id'] ;?></h5>
 								<div class="menutype-rating">

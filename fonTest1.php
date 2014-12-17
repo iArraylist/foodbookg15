@@ -20,7 +20,7 @@
    echo "เพิ่มวัตถุดิบเรียบร้อยแล้ว";
  }
 
-  if(isset($_POST['savenewname'])){
+ if(isset($_POST['savenewname'])){
    $result=mysql_query("update ingrediants set ing_name='$_POST[newname]' where ing_id='$_POST[savenewname]'");
    echo "บันทึกเรียบร้อยแล้ว";
  }
@@ -43,10 +43,19 @@
   <div>
     <form action="" method="POST">
       <label>เพิ่มวัตถุดิบ</label><input name="newing" class="form-control" required>
-      <input type="radio" name="ing_cate" value="0000000001" checked>ผักและผลไม้
-      <input type="radio" name="ing_cate" value="0000000002">เนื้อสัตว์
-      <input type="radio" name="ing_cate" value="0000000003">จำพวกแป้ง
-      <input type="radio" name="ing_cate" value="0000000004">อื่นๆ
+      <?php 
+      $rescate=mysql_query("select * from reci_categories");
+      $c=0;
+      while($rescateDate=mysql_fetch_array($rescate)){
+        if($c==0){
+          ?>
+          <input type="radio" name="ing_cate" value="<?php echo $rescateDate['reci_category_id'];?>" checked><?php echo $rescateDate['reci_category'];?>
+          <?php } else{ ?>
+          <input type="radio" name="ing_cate" value="<?php echo $rescateDate['reci_category_id'];?>"><?php echo $rescateDate['reci_category'];?>
+          <?php 
+        } $c++;
+      }
+      ?>
       <br><button type="submit" name="savenewing">เพิ่ม</button>
     </form>
   </div>

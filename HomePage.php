@@ -116,8 +116,7 @@
 			<div class="offer-text">
 				<h4><?php echo " " . $faterrayrecipe['recipe_name']; ?></h4>
 				<p><?php echo " " . $faterrayrecipe['descripShort']; ?></p>
-				<input type="button" value="More">
-				<span></span>
+				<a href="showDetail.php?recipe_id=<?php echo $faterrayrecipe['recipe_id'];?>"><input type="button" value="More"></a>
 			</div>
 			<div class="clearfix"></div>
 		</div>
@@ -130,8 +129,7 @@
 			<div class="offer-text">
 				<h4><?php echo " " . $faterrayrecipe1['recipe_name']; ?></h4>
 				<p><?php echo " " . $faterrayrecipe1['descripShort']; ?></p>
-				<input type="button" value="More">
-				<span></span>
+				<a href="showDetail.php?recipe_id=<?php echo $faterrayrecipe1['recipe_id'];?>"><input type="button" value="More"></a>
 			</div>
 			<div class="clearfix"></div>
 		</div>
@@ -144,8 +142,7 @@
 			<div class="offer-text">
 				<h4><?php echo " " . $faterrayrecipe2['recipe_name']; ?></h4>
 				<p><?php echo " " . $faterrayrecipe2['descripShort']; ?></p>
-				<input type="button" value="More">
-				<span></span>
+				<a href="showDetail.php?recipe_id=<?php echo $faterrayrecipe2['recipe_id'];?>"><input type="button" value="More"></a>
 			</div>
 			<div class="clearfix"></div>
 		</div>

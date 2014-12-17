@@ -51,9 +51,7 @@
 				<h2>Search Here</h2>
 				<h5>you can type the ingredient that you have in box below.</h5>
 			</div>
-			<form action="" method="">
-				<input type="text" class="form-control" placeholder="Type Your Ingredient">
-			</form>
+			
 	</section>
 
 	<div class="test"></div>

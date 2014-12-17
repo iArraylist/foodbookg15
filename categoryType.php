@@ -38,7 +38,8 @@
 			<?php 
 					$cate_type = $_GET['cate_type'];
 				?>
-				<a id="head" href="#">เมนู<?php echo $cate_type ;?></a>
+				<img src="<?php echo $cate_type ?>.png" alt="">
+				<!-- <a id="head" href="#">เมนู<?php echo $cate_type ;?></a> -->
 		</div>
 		<?php 
 					
@@ -52,17 +53,17 @@
 				<div class="menutype-menu-grid wow fadeInRight" data-wow-delay="0.4s">
 					<div class="menutype-menu-grid-sub">
 						<div class="col-md-3">
-							<img src="test2.jpg " class="img-responsive" alt="">
+							<img src="images/food_img/<?php echo $fetcharray['picture'] ?>" class="img-responsive" alt="">
 						</div>
 						<div class="col-md-7">
 							<div class="menutype-menu-grid-sub-title">
 								<h4>
-									<a id = "title" href=""><?php echo $fetcharray['recipe_name'] ;?></a>
+									<a id = "title" href="#"><?php echo $fetcharray['recipe_name'] ;?></a>
 								</h4>
 								<h5 id="username">By <?php echo $fetcharray['member_id'] ;?></h5>
 								<div class="menutype-rating">
 									<span>rating</span>
-									<a href="">
+									<a href="#">
 										<img src="star1.png" alt="">
 									</a>
 								</div>

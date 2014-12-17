@@ -50,7 +50,7 @@ body {
 	background-color: #ECECEC;
 }
 .menutype-menu-content{
-	padding: 5em 0;
+	padding: 2em 0;
 }
 #head{
 	color: black;
@@ -62,9 +62,14 @@ body {
 }
 .menutype-menu-content-head{
 	text-align: center;
-	margin-bottom: 5em;
+	margin-bottom: 2em;
+}
+.menutype-menu-content-head img{
+	width: 50%;
+	height: 200px;
 }
 .menutype-menu-grid{
+	border-radius: 5px;
 	background-color: white;
 	padding-bottom: 0em;
 	padding-top: 15px;
@@ -117,4 +122,12 @@ body {
 	color: white;
 	background-color: #CF000F;
 	transition: 0.5s;
+}
+.r-header-container{
+	margin-top: 15px;
+	background-image: url('../logo_sub.png');
+	height: 180px;
+	background-repeat: no-repeat;
+	background-position: left;
+	
 }

@@ -190,9 +190,9 @@
 					echo "<br><br><label>ขั้นตอน: </label>" . $resultData['step_title'];
 					if($resultData['picture']!=""){
 						?>
-						<div id="cropstep" class="cropstep">
-							<img src="images/food_img/<?php echo $resultData['picture'] ;?>" />
-						</div>
+						
+							<br><img style="height:350px;margin-bottom:10px;" src="images/food_img/<?php echo $resultData['picture'] ;?>" />
+						
 
 						<?php }
 						echo "<br><label>วิธีทำ: </label>" . $resultData['howTo'];

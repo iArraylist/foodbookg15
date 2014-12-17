@@ -88,7 +88,22 @@
 	</div>
 	<div class="test"></div>
 	<!---------------------------------------------------------------->
-	
+	<?php #query from database
+
+		$sql = "select * from recipes where recipe_id = '0000000083' ";
+		$dbname = "foodbookdb";
+		mysql_query("SET NAMES UTF8"); //show thai 
+		$dbquery = mysql_db_query($dbname, $sql);
+		$faterrayrecipe = mysql_fetch_array($dbquery);
+
+		$sql1 = "select * from recipes where recipe_id = '0000000103' ";
+		$dbquery1 = mysql_db_query($dbname, $sql1);
+		$faterrayrecipe1 = mysql_fetch_array($dbquery1);
+
+		$sql2 = "select * from recipes where recipe_id = '0000000097' ";
+		$dbquery2 = mysql_db_query($dbname, $sql2);
+		$faterrayrecipe2 = mysql_fetch_array($dbquery2);
+	?>
 	<div class="r-rec">
 		<img src="REC_01.png" alt="">
 	</div>
@@ -96,11 +111,11 @@
 	<div class="col-md-4">
 		<div class="offer">
 			<div class="offer-img">
-				<img src="test2.jpg" class="img-responsive" alt="">
+				<img src="nn001.jpg" class="img-responsive" alt="">
 			</div>
 			<div class="offer-text">
-				<h4>Olister Combo pack lorem</h4>
-				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. </p>
+				<h4><?php echo " " . $faterrayrecipe['recipe_name']; ?></h4>
+				<p><?php echo " " . $faterrayrecipe['descripShort']; ?></p>
 				<input type="button" value="More">
 				<span></span>
 			</div>
@@ -110,11 +125,11 @@
 	<div class="col-md-4">
 		<div class="offer">
 			<div class="offer-img">
-				<img src="test2.jpg" class="img-responsive" alt="">
+				<img src="nn002.jpg" class="img-responsive" alt="">
 			</div>
 			<div class="offer-text">
-				<h4>Olister Combo pack lorem</h4>
-				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. </p>
+				<h4><?php echo " " . $faterrayrecipe1['recipe_name']; ?></h4>
+				<p><?php echo " " . $faterrayrecipe1['descripShort']; ?></p>
 				<input type="button" value="More">
 				<span></span>
 			</div>
@@ -124,11 +139,11 @@
 	<div class="col-md-4">
 		<div class="offer">
 			<div class="offer-img">
-				<img src="test2.jpg" class="img-responsive" alt="">
+				<img src="nn003.jpg" class="img-responsive" alt="">
 			</div>
 			<div class="offer-text">
-				<h4>Olister Combo pack lorem</h4>
-				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. </p>
+				<h4><?php echo " " . $faterrayrecipe2['recipe_name']; ?></h4>
+				<p><?php echo " " . $faterrayrecipe2['descripShort']; ?></p>
 				<input type="button" value="More">
 				<span></span>
 			</div>

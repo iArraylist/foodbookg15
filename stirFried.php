@@ -29,7 +29,7 @@
 
 <?php
 	
-$getRecipeByCategory = "select * from recipes_ranking where reci_category_id = '3'limit 10";
+$getRecipeByCategory = "select * from recipes_ranking where reci_category_id = '0000000001'limit 10";
 $dbname = "foodbookdb";
 $dbqueryByCategory = mysql_db_query($dbname, $getRecipeByCategory);
 while($row = mysql_fetch_array($dbqueryByCategory)){
@@ -37,7 +37,7 @@ while($row = mysql_fetch_array($dbqueryByCategory)){
 	<div class="menutype-menu-grid">
 	<div class="menutype-menu-grid-sub">
 		<div class="col-md-3">
-			<img src="data:image/jpeg;base64, <?php echo base64_encode($row['picture']);?>" class="img-responsive" alt="">
+			<?php echo '<img src="images/food_img/'.$row['picture'].'" class="img-responsive" alt="">';?>
 
 		</div>
 		<div class="col-md-7">

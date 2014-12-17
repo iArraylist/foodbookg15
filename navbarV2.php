@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "confic.inc.php";
 ?>
 <div class="menu-bar">
@@ -30,14 +31,16 @@ include "confic.inc.php";
 					|
 				</li>
 				<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">อาหารที่ได้รับความนิยม<span class="caret"></span></a>
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">เมนูยอดนิยม<span class="caret"></span></a>
 				<ul class="dropdown-menu" role="menu">
 					<li><a id="r-menu-drop" href="showRanking.php">ทุกประเภท</a></li>
-					<li><a id="r-menu-drop" href="stirFried.php">ประเภทผัด</a></li>
-            		<li><a id="r-menu-drop" href="boil.php">ประเภทต้ม</a></li>
-            		<li><a id="r-menu-drop" href="fry.php">ประเภททอด</a></li>
-            		<li><a id="r-menu-drop" href="steam.php">ประเภทนึ่ง</a></li>
-            		<li><a id="r-menu-drop" href="grill.php">ประเภทปิ้ง/ย่าง</a>
+					<li><a id="r-menu-drop" href="stirFried.php">ผัด</a></li>
+            		<li><a id="r-menu-drop" href="boil.php">ต้ม</a></li>
+            		<li><a id="r-menu-drop" href="curry.php">แกง</a></li>
+            		<li><a id="r-menu-drop" href="fry.php">ทอด</a></li>
+            		<li><a id="r-menu-drop" href="grill.php">ปิ้ง/ย่าง/อบ</a>
+            		<li><a id="r-menu-drop" href="steam.php">นึ่ง</a></li>
+            		<li><a id="r-menu-drop" href="salad.php">ยำ</a></li>
             		</li>
             		</ul>
 

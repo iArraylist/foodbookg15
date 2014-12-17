@@ -80,7 +80,7 @@
 				<div class="menutype-menu-grid">
 					<div class="menutype-menu-grid-sub">
 						<div class="col-md-3">
-							<img src="data:image/jpeg;base64, <?php echo base64_encode($row['picture']);?>" class="img-responsive" alt="">
+							<?php echo '<img src="images/food_img/'.$row['picture'].'" class="img-responsive" alt="">';?>
 
 						</div>
 						<div class="col-md-7">

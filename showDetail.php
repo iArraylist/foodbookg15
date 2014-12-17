@@ -114,8 +114,14 @@
 				$dbqueryByCategory = mysql_db_query($dbname, $getAvgRateByRecipeId);
 				$row = mysql_fetch_array($dbqueryByCategory);
 
+				if($row{'average_rate'}==0){
+					echo "ยังไม่มีการโหวต";
 
-				echo round($row{'average_rate'},1);
+				}
+				else{
+					echo round($row{'average_rate'},1);
+				}
+				
 
 
 

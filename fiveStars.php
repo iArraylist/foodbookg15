@@ -19,9 +19,9 @@ if($num_rows != 0 ){
 	echo "<div>";
 	while ($i <= 5) {
 		if ($row['rate'] >= $i) {
-			echo '<input class="static" type="image" name="rate" src="images/fillStar.png" rel="images/emptyStar.png" disabled>';
+			echo '<input class="static" type="image" name="rate" src="images/fillStar.png" rel="images/emptyStar.png" height="28" width="26" disabled>';
 		} else {
-			echo '<input class="static" type="image" name="rate" id="1" src="images/emptyStar.png" rel="images/fillStar.png" disabled>';
+			echo '<input class="static" type="image" name="rate" id="1" src="images/emptyStar.png" rel="images/fillStar.png" height="28" width="26" disabled>';
 		}
 		$i = $i + 1;
 	}
@@ -31,20 +31,21 @@ if($num_rows != 0 ){
 else {
 	if(isset($_POST['rate'])){
 		$sql = "INSERT INTO rates (member_id, recipe_id, rate)
-		VALUES ('".$_SESSION["login_id"]."', '".$recipe_id."', '$_POST[rate]')";
+		VALUES ('".$_SESSION["login_id"]."', '".$recipe_id."', '".$_POST['rate']."')";
+
 		check_data($sql); 
 		$i = 1;
 		echo "<div>";
 		while ($i <= 5) {
 			if ($_POST['rate'] >= $i) {
-				echo '<input class="static" type="image" name="rate" src="images/fillStar.png" rel="images/emptyStar.png" disabled>';
+				echo '<input class="static" type="image" name="rate" src="images/fillStar.png" rel="images/emptyStar.png" height="28" width="26" disabled>';
 			} else {
-				echo '<input class="static" type="image" name="rate" id="1" src="images/emptyStar.png" rel="images/fillStar.png" disabled>';
+				echo '<input class="static" type="image" name="rate" id="1" src="images/emptyStar.png" rel="images/fillStar.png" height="28" width="26" disabled>';
 			}
 			$i = $i + 1;
 		}
 		echo "</div>";
-		echo "Voted!";
+		echo "โหวตแล้ว!";
 	} else {
 		?>
 		<div class="rollover">

@@ -40,8 +40,10 @@ body {
 	text-transform: uppercase;
 }
 .menu-bar ul li ul li a {
+
 	display: block;
 	color: black;
+
 }
 .r-header-container{
 	margin-top: 15px;
@@ -49,12 +51,8 @@ body {
 	height: 180px;
 	background-repeat: no-repeat;
 	background-position: left;
+	
 }
-
-
-
-
-
 
 
 /*.r-addfoodpage{
@@ -74,6 +72,15 @@ body {
 	padding: 13px 30px;
 	text-decoration: none
 }
+
+/*.r-header-container{
+	background: url('../bg-wood.jpg')50% 50% repeat;
+	background-size: 100%;
+	width: 100%;
+	height: 120px;
+	z-index: 11;
+
+}*/
 .r-header-container-2{
 	background: url('../bg-wood.jpg')50% 50% repeat;
 	background-size: 100%;
@@ -108,7 +115,6 @@ body {
 	border-bottom: 1px solid #D7D7D7;
 	margin-bottom: 20px;
 	display: block;
-	border-radius: 5px;
 
 }
 
@@ -180,7 +186,4 @@ li.sortable-placeholder {
 	border: 1px dashed #CCC;
 	height: 30px;
 	background: none;
-}
-.form-control{
-	width: 62%;
 }

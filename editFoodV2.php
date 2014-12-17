@@ -136,7 +136,7 @@
 		<!---------------------------------------------------------->
 		<form action="" method="post" enctype="multipart/form-data" id="form-id" >
 			<!-- <div class="r-addfoodpage"> -->
-				<div class="container">
+				<!-- <div class="container"> -->
 					<div class="r-addfoodpage-1">
 						<!-- <a href="#">แก้ไขรายการอาหาร</a><br>
 						<i class="fa fa-caret-down fa-5x" style="height: 50px;"></i> -->
@@ -468,7 +468,7 @@
 					<button type="submit" name="submit" class="btn btn-success" onclick="getOrderli();" >ยืนยันรายการอาหาร</button>
 					<br><br>
 				</center>
-			</div>
+			<!-- </div> -->
 		<!-- </div> -->
 
 	</form>

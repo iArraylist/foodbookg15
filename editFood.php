@@ -121,8 +121,9 @@
 				else echo "Entered steppp successfully";
 
 			}
+			header("location:userFood.php");
 
-		}
+		}	
 
 		if (isset($_POST['submit'])){
 		//echo $_POST['ordersteps'];

@@ -120,6 +120,8 @@
 
 		}
 
+		header("location:userFood.php");
+
 	}
 	
 	if (isset($_POST['submit'])){

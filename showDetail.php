@@ -101,6 +101,7 @@
 				});
 			</script>
 			<?php include 'fiveStars.php' ?>
+
 				<br>
 				<br>
 				<label>ชื่อรายการอาหาร: </label><?php echo " " . $faterrayrecipe['recipe_name']; ?><br>
@@ -108,6 +109,11 @@
 				
 				
 				<?php 
+				$getAvgRateByRecipeId = "select * from recipes_ranking where recipe_id ='".$recipe_id."'";
+				$dbname = "foodbookdb";
+				$dbqueryByCategory = mysql_db_query($dbname, $getAvgRateByRecipeId);
+				$row = mysql_fetch_array($dbqueryByCategory);
+
 
 				echo round($row{'average_rate'},1);
 

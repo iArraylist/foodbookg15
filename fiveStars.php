@@ -9,7 +9,6 @@ function check_data($sql){
 		die('Could not enter data: ' . mysql_error()); 
 	}
 }
-
 $getRateOfMember = "select * from rates where recipe_id ='" . $recipe_id . "'and member_id = '".$_SESSION["login_id"]."'";
 $dbname = "foodbookdb";
 $dbqueryRateOfMember = mysql_db_query($dbname, $getRateOfMember);
@@ -32,7 +31,7 @@ if($num_rows != 0 ){
 else {
 	if(isset($_POST['rate'])){
 		$sql = "INSERT INTO rates (member_id, recipe_id, rate)
-		VALUES ('1', '".$recipe_id."', '$_POST[rate]')";
+		VALUES ('".$_SESSION["login_id"]."', '".$recipe_id."', '$_POST[rate]')";
 		check_data($sql); 
 		$i = 1;
 		echo "<div>";
@@ -50,11 +49,11 @@ else {
 		?>
 		<div class="rollover">
 			<form action="<?php $_php_self ?>" method="post">
-				<input value="1" type="image" name="rate" id="star1" src="images/emptyStar.png" rel="images/fillStar.png">
-				<input value="2" type="image" name="rate" id="star2" src="images/emptyStar.png" rel="images/fillStar.png">
-				<input value="3" type="image" name="rate" id="star3" src="images/emptyStar.png" rel="images/fillStar.png">
-				<input value="4" type="image" name="rate" id="star4" src="images/emptyStar.png" rel="images/fillStar.png">
-				<input value="5" type="image" name="rate" id="star5" src="images/emptyStar.png" rel="images/fillStar.png">
+				<input value="1" type="image" name="rate" id="star1" src="images/emptyStar.png" rel="images/fillStar.png" height="33" width="31">
+				<input value="2" type="image" name="rate" id="star2" src="images/emptyStar.png" rel="images/fillStar.png" height="30" width="28">
+				<input value="3" type="image" name="rate" id="star3" src="images/emptyStar.png" rel="images/fillStar.png" height="28" width="26">
+				<input value="4" type="image" name="rate" id="star4" src="images/emptyStar.png" rel="images/fillStar.png" height="24" width="22">
+				<input value="5" type="image" name="rate" id="star5" src="images/emptyStar.png" rel="images/fillStar.png" height="22" width="20">
 			</form>
 		</div>
 		<?php

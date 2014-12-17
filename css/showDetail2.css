@@ -14,9 +14,9 @@ body {
 }
 .menu-bar{
 	background-image: url('../MENU_02.png');
+	background-repeat: no-repeat;
 	width: 100%;
 	height: 80px;
-
 	margin-bottom: 20px;
 	background-position: center; 
 }
@@ -47,7 +47,6 @@ body {
 }
 .r-showdetailpage{
 	display:block;
-	background-color: #F2F1EF;
 	padding-top: 50px;
 }
 

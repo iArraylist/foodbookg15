@@ -34,8 +34,8 @@
 		<img src="LOGO_01.png" alt="">
 		</p>
 	</div>
-	<a id="login" href=""></a>
-	<a id="regis" href=""></a>
+	<!-- <a id="login" href=""></a>
+	<a id="regis" href=""></a> -->
 
 	<p>
 		<img class="login" src="LOGIN_ORI.png" alt="">

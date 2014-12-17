@@ -66,6 +66,13 @@
 										<img src="star1.png" alt="">
 									</a>
 								</div>
+								<h5>Tag 
+								<?php 
+								$result = mysql_query("select * from reci_has_ing join ingrediants on reci_has_ing.ing_id = ingrediants.ing_id where reci_has_ing.recipe_id = '$fetcharray[recipe_id]'");
+								while($resultData = mysql_fetch_array($result)){ ?>
+									 <kbd><?php echo $resultData['ing_name']; ?></kbd><?php
+								}?>
+								</h5>
 
 							</div>
 						</div>

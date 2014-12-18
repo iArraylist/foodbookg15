@@ -9,6 +9,7 @@
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 	<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="css/showDetail2.css">
+		<link rel="stylesheet" type="text/css" href="css/footer.css">
 	<script src="js/jquery.min.js"></script>
 	<script src="js/jquery-2.1.1.min.js"></script>
 
@@ -26,8 +27,13 @@
 	</style>
 </head>
 <body>
+	<div class="container">
+	<div class="r-header-container">
+	
+	</div>
+	
 	<?php
-	include "confic.inc.php";
+
 	include "navbarV2.php";
 	?>
 
@@ -52,10 +58,10 @@
 			</div>
 			<div class="form-showdetail">
 				<div class="row">
-					<div class="col-xs-6">
+					<div class="col-md-10">
 						<h3><label>ชื่อรายการอาหาร: </label><?php echo " " . $faterrayrecipe['recipe_name']; ?></h3>
 					</div>
-					<div class="col-xs-6" style="text-align: -webkit-right;margin-top:15px;">
+					<div class="col-md-2" style="text-align: -webkit-right;margin-top:15px;">
 						<?php 
 						if(isset($_SESSION['login_id'])){
 							$favsql="select * FROM favorites WHERE recipe_id='$recipe_id' AND member_id='$_SESSION[login_id]'";
@@ -214,13 +220,9 @@
 
 
 		<!---------------------------------------------------------->
-		<div class="footer">
-		</div>	
-		<div class="r-header-container-2">
-			<div class="container">
-				<p>2014 All rights Reserved | Template มั่วๆ by โจ๋วววววววววว</p>
-			</div>
-		</div>
-
+<?php 
+		include "footer.html";
+	?>
+</div>
 	</body>
 	</html>

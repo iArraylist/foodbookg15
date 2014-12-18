@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include "confic.inc.php";
 ?>
 <div class="menu-bar">

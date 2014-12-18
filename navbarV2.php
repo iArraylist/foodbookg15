@@ -72,8 +72,8 @@ include "confic.inc.php";
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo $_SESSION['login_username'];?><span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
 							<li><a id="r-menu-drop" href="addFood.php">เพิ่มเมนูอาหาร</a></li>
-							<li><a id="r-menu-drop" href="">เจัดการเมนูทั้งหมด</a></li>
-							<li><a id="r-menu-drop" href="manageIng.php">เจัดการวัตถุดิบ</a></li>
+							<li><a id="r-menu-drop" href="">จัดการเมนูทั้งหมด</a></li>
+							<li><a id="r-menu-drop" href="manageIng.php">จัดการวัตถุดิบ</a></li>
 							<li><a id="r-menu-drop" href="manageMenuCate.php">จัดการประเภทอาหาร</a></li>
 							<li><a id="r-menu-drop" href="manageUser.php">จัดการผู้ใช้</a></li>
 							<li><a id="r-menu-drop" href="favFood.php">เมนูโปรดยอดยินม</a></li>

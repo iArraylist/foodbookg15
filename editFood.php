@@ -204,6 +204,7 @@
 										while($stpp<count($q_title)){
 											?>
 											<li id="<?php echo $clone_id2; ?>"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+												<?php if($clone_id2!=1){ ?><button class="btn btn-danger" style="float:right;margin-top:-10px;" onclick="deletestep(<?php echo $clone_id2; ?>)">ลบ</button><?php }?>
 												<div id="div_step_<?php echo $clone_id2; ?>" >
 													<label>ชื่อขั้นตอน*</label>
 													<input type="text" class="form-control" placeholder="พิมพ์ชื่อขั้นตอน" name="title_step_<?php echo $clone_id2; ?>" value="<?php echo $q_title[$stpp]; ?>" required>

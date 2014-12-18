@@ -26,11 +26,15 @@
 	</style>
 </head>
 <body>
+	<div class="container">
+		<div class="r-header-container">
+		</div>
+	</div>
 	<?php
 	include "confic.inc.php";
 	include "navbarV2.php";
 	?>
-
+	
 	<?php 
 	
 	#query from database

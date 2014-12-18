@@ -47,7 +47,7 @@ body {
 }
 .r-showdetailpage{
 	display:block;
-	padding-top: 50px;
+
 }
 
 .r-showdetailpage-1{
@@ -113,6 +113,7 @@ body {
 	margin-bottom: 20px;
 	display: block;
 	border-radius: 10px;
+	margin-top: 10px;
 }
 
 .crop { width: 350px; height: 350px; overflow: hidden; }

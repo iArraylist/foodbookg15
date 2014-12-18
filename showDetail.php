@@ -28,16 +28,12 @@
 </head>
 <body>
 	<div class="container">
-<<<<<<< HEAD
+
 		<div class="r-header-container">
 		</div>
 	</div>
-=======
-	<div class="r-header-container">
-	
-	</div>
-	
->>>>>>> origin/master
+
+
 	<?php
 
 	include "navbarV2.php";
@@ -59,8 +55,9 @@
 	<div class="r-showdetailpage">
 		<div class="container">
 			<div class="r-showdetailpage-1">
-				<a href="#">รายการอาหาร</a><br>
-				<i class="fa fa-caret-down fa-5x" style="height: 50px;"></i>
+				<img src="showlist.png" alt="">
+				<!-- <a href="#">รายการอาหาร</a><br>
+				<i class="fa fa-caret-down fa-5x" style="height: 50px;"></i> -->
 			</div>
 			<div class="form-showdetail">
 				<div class="row">

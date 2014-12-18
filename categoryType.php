@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+<?php session_start(); ?><!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -6,6 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">\
 	<link rel="stylesheet" type="text/css" href="css/footer.css">
+	<link rel="stylesheet" type="text/css" href="css/HomePage.css">
 	<link rel="stylesheet" type="text/css" href="css/categoryType.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="js/docs.min.js"></script>
@@ -25,12 +27,41 @@
 				});
 			});
 	</script>
+	<link href="css/bootstrap-tagsinput.css" rel="stylesheet">
+	<script src="js/bootstrap-tagsinput.js"></script>
+	<script src="js/bootstrap-tagsinput-angular.js"></script>
+	<script src="js/bootstrap-typeahead.js"></script>
 </head>
 <body>
 <div class="container">
-	<div class="r-header-container">
-	
+	<div class="row">
+		<div class="col-md-4">
+			<div class="r-header-container">
+			</div>
+		</div>
+		<div class="col-md-8">
+			<div role="tabpanel" style="margin-right:20px;margin-left:20px;">
+
+			<!-- Nav tabs -->
+			<ul class="nav nav-tabs" role="tablist">
+				<li role="presentation" class="active"><a id="bying" href="#ByIng" aria-controls="home" role="tab" data-toggle="tab">ค้นหาจากวัตถุดิบ</a></li>
+				<li role="presentation"><a id="bymenu" href="#ByMenu" aria-controls="profile" role="tab" data-toggle="tab">ค้นหาจากชื่อเมนูอาหาร</a></li>
+			</ul>
+
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<div role="tabpanel" class="tab-pane fade in active" id="ByIng" style="padding: 15px;">
+					<?php include "searchByIngBar.php"; ?>
+				</div>
+				<div role="tabpanel" class="tab-pane fade" id="ByMenu" style="padding: 15px;">
+					<?php include "searchByMenuBar.php"; ?>
+				</div>
+			</div>
+
+		</div>
+		</div>
 	</div>
+	
 	
 	<?php 
 	include "navbarV2.php";

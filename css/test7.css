@@ -62,13 +62,14 @@ color: #F22613;
 	transition: .4s;
 }
 .r-header-container{
-	background: url('../bg-wood.jpg')50% 50% repeat;
-	background-size: 100%;
-	width: 100%;
-	height: 120px;
-	z-index: 11;
-
+	margin-top: 15px;
+	background-image: url('../logo_sub.png');
+	height: 180px;
+	background-repeat: no-repeat;
+	background-position: left;
+	
 }
+
 .r-header-container-2{
 	background: url('../bg-wood.jpg')50% 50% repeat;
 	background-size: 100%;
@@ -77,10 +78,7 @@ color: #F22613;
 	z-index: 11;
 
 }
-.footer {
-	padding: 2em 0;
-	background: #F64747;
-}
+
 .r-header-container-2 .container p{
 	margin-top: 20px;
 	color: white;

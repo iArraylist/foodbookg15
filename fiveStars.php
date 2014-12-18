@@ -19,9 +19,9 @@ if($num_rows != 0 ){
 	echo "<div>";
 	while ($i <= 5) {
 		if ($row['rate'] >= $i) {
-			echo '<input class="static" type="image" name="rate" src="images/fillStar.png" rel="images/emptyStar.png" height="28" width="26" disabled>';
+			echo '<input class="static" type="image" name="rate" src="images/fillStar.png" rel="images/emptyStar.png" height="20" width="18" disabled>';
 		} else {
-			echo '<input class="static" type="image" name="rate" id="1" src="images/emptyStar.png" rel="images/fillStar.png" height="28" width="26" disabled>';
+			echo '<input class="static" type="image" name="rate" id="1" src="images/emptyStar.png" rel="images/fillStar.png" height="20" width="18" disabled>';
 		}
 		$i = $i + 1;
 	}
@@ -38,9 +38,9 @@ else {
 		echo "<div>";
 		while ($i <= 5) {
 			if ($_POST['rate'] >= $i) {
-				echo '<input class="static" type="image" name="rate" src="images/fillStar.png" rel="images/emptyStar.png" height="28" width="26" disabled>';
+				echo '<input class="static" type="image" name="rate" src="images/fillStar.png" rel="images/emptyStar.png" height="20" width="18" disabled>';
 			} else {
-				echo '<input class="static" type="image" name="rate" id="1" src="images/emptyStar.png" rel="images/fillStar.png" height="28" width="26" disabled>';
+				echo '<input class="static" type="image" name="rate" id="1" src="images/emptyStar.png" rel="images/fillStar.png" height="20" width="18" disabled>';
 			}
 			$i = $i + 1;
 		}
@@ -50,11 +50,11 @@ else {
 		?>
 		<div class="rollover">
 			<form action="<?php $_php_self ?>" method="post">
-				<input value="1" type="image" name="rate" id="star1" src="images/emptyStar.png" rel="images/fillStar.png" height="28" width="26">
-				<input value="2" type="image" name="rate" id="star2" src="images/emptyStar.png" rel="images/fillStar.png" height="28" width="26">
-				<input value="3" type="image" name="rate" id="star3" src="images/emptyStar.png" rel="images/fillStar.png" height="28" width="26">
-				<input value="4" type="image" name="rate" id="star4" src="images/emptyStar.png" rel="images/fillStar.png" height="28" width="26">
-				<input value="5" type="image" name="rate" id="star5" src="images/emptyStar.png" rel="images/fillStar.png" height="28" width="26">
+				<input value="1" type="image" name="rate" id="star1" src="images/emptyStar.png" rel="images/fillStar.png" height="20" width="18">
+				<input value="2" type="image" name="rate" id="star2" src="images/emptyStar.png" rel="images/fillStar.png" height="20" width="18">
+				<input value="3" type="image" name="rate" id="star3" src="images/emptyStar.png" rel="images/fillStar.png" height="20" width="18">
+				<input value="4" type="image" name="rate" id="star4" src="images/emptyStar.png" rel="images/fillStar.png" height="20" width="18">
+				<input value="5" type="image" name="rate" id="star5" src="images/emptyStar.png" rel="images/fillStar.png" height="20" width="18">
 			</form>
 		</div>
 		<?php

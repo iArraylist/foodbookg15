@@ -40,7 +40,7 @@
 		
 		<div class="menutype-menu-content">
 			<?php 
-			$sql = "select * from favorites join recipes on favorites.recipe_id=recipes.recipe_id join members on recipes.member_id=members.member_id where members.member_id = '$_SESSION[login_id]'";
+			$sql = "select * from favorites join recipes on favorites.recipe_id=recipes.recipe_id join members on recipes.member_id=members.member_id where favorites.member_id = '$_SESSION[login_id]'";
 			$dbquery = mysql_query($sql);
 			$num_rows = mysql_num_rows($dbquery);
 			$num_count = 0;

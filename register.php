@@ -7,7 +7,7 @@
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="css/test12.css">
+	<link rel="stylesheet" type="text/css" href="css/HomePage.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="js/docs.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
@@ -30,9 +30,7 @@
 </head>
 <body>
 	<div class="container">
-		<?php
-	include "login.php";
-	?>
+		
 		<div class="main-logo wow bounceIn animated">
 			<p>
 				<img src="LOGO_01.png" alt="">
@@ -52,7 +50,7 @@
 	?>
 
 	<?php
-	$error='';
+	$errorregis='';
 	if(isset($_POST['regis'])){
 
 		$username=mysql_real_escape_string(stripcslashes($_POST['username']));
@@ -70,16 +68,16 @@
 						$_SESSION['login_id']=$result['member_id'];
 						header("location: HomePage.php");
 					} else{
-						$error="Error for register, Please register again<br>";
+						$errorregis="Error for register, Please register again<br>";
 					}
 				} else{
-					$error="Password not match.<br>";
+					$errorregis="Password not match.<br>";
 				}
 			} else{
-				$error="Password need 4-16 character.<br>";
+				$errorregis="Password need 4-16 character.<br>";
 			}
 		} else {
-			$error="Someone already has that username. Try another.<br>";
+			$errorregis="Someone already has that username. Try another.<br>";
 		}
 
 		// --------- Disconnect Database ---------
@@ -88,6 +86,37 @@
 
 	}
 	?>
+<?php
+$errorlogin='';
+if(isset($_POST['login'])){
+
+	$username=mysql_real_escape_string(stripcslashes($_POST['username']));
+	$password=mysql_real_escape_string(stripcslashes($_POST['password']));
+
+	$result=mysql_query("select * from members where username='$username' and password='$password'");
+	$rows=mysql_num_rows($result);
+	if($rows==1){
+		$resultData=mysql_fetch_array($result);
+		if($resultData['status']=='PERMIT'){
+			$_SESSION['login_username']=$username;
+			$_SESSION['login_id']=$resultData['member_id'];
+			header("location: HomePage.php");
+		} else {
+			$errorlogin="Username id banned, Please contact Admin.";
+		}
+	} else {
+		$errorlogin="Username or Password id invalid.";
+	}
+
+		// --------- Disconnect Database ---------
+	mysql_free_result($result);
+	mysql_close($conn);
+	
+}
+?>
+
+
+
 	<style>
 
 
@@ -194,13 +223,15 @@
 
 	</style>
 
-	<section id="r-search" style="padding: 15px;">
+	<section id="r-search-login" style="padding: 15px;">
+	<div class="col-md-6 loginpage">
+		<h4>ยังไมไ่ด้เป็นสมาชิก ?</h4>
+		<p>*ลงทะเบียนเพื่อประสบการณ์ที่ดีกว่า*<p5>
 		<div class="testbox">
 			<h1>Registration</h1>
-
 			<form action"" method="post">
 				<center>
-					<?php echo "$error"; ?>
+					<?php echo "$errorregis"; ?><br>
 					<label id="icon" for="name"><i class="icon-user"></i></label>
 					<input class="regisinput" type="text" name="username" placeholder="Username" required/><br>
 					<label id="icon" for="name"><i class="icon-shield"></i></label>
@@ -211,6 +242,26 @@
 				</center>
 			</form>
 		</div>
+	</div>
+	<div class="col-md-6">
+	<h4>เข้าสู่ระบบ</h4>
+	<p>*สำหรับผู้ที่เป็นสมาชิกอยู่เเล้ว*<p5>
+		<div class="testbox">
+			<h1>Login</h1>
+			<form action"" method="post">
+				<center>
+					<?php echo "$errorlogin"; ?><br>
+					<label id="icon" for="name"><i class="icon-user"></i></label>
+					<input class="regisinput" type="text" name="username" placeholder="Username" required/><br>
+					<label id="icon" for="name"><i class="icon-shield"></i></label>
+					<input class="regisinput" type="password" name="password" placeholder="Password" required/><br>
+					
+					<button style="height: 33px;width: 93px;padding-bottom: 6px;" class="regisbutton" type="submit" name="login">Login</button>
+				</center>
+
+			</form>
+		</div>
+	</div>
 	</section>
 
 		<!--

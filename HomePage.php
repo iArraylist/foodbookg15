@@ -53,11 +53,7 @@
 	include "confic.inc.php";
 	include "navbarV2.php";
 	?>
-	<?php
-	if(!isset($_SESSION['login_id'])){
-		include "login.php";
-	}
-		?>
+	
 	<section id="r-search">
 		<div role="tabpanel" style="margin-right:20px;margin-left:20px;">
 

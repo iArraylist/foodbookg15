@@ -48,29 +48,40 @@ include "confic.inc.php";
 						<?php } ?>
 					</ul>
 				</li>
-				<li>
+				<!-- <li>
 					|
-				</li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-			
-
+				</li> -->
 					<li>
 						|
 					</li>
-					<li>
-						<a href="#">ติดต่อเรา</a>
+					<li><?php if(!isset($_SESSION['login_id'])){
+						?>
+						<a href="register.php">ล็อคอิน/ลงทะเบียน</a><?php } ?>
+						<?php if(isset($_SESSION['login_id'])){
+							if($_SESSION['login_id']!=1){
+						?>
+						<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo $_SESSION['login_username'];?><span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a id="r-menu-drop" href="addFood.php">เพิ่มเมนูอาหาร</a></li>
+							<li><a id="r-menu-drop" href="favFood.php">เมนูโปรดของฉัน</a></li>
+							<li><a id="r-menu-drop" href="userFood.php">เมนูของฉัน</a></li>
+							<li><a id="r-menu-drop" href="logout.php">ออกจากระบบ</a></li>
+						</ul></li><?php }else { ?>
+						<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo $_SESSION['login_username'];?><span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a id="r-menu-drop" href="addFood.php">เพิ่มเมนูอาหาร</a></li>
+							<li><a id="r-menu-drop" href="">เจัดการเมนูทั้งหมด</a></li>
+							<li><a id="r-menu-drop" href="manageIng.php">เจัดการวัตถุดิบ</a></li>
+							<li><a id="r-menu-drop" href="manageMenuCate.php">จัดการประเภทอาหาร</a></li>
+							<li><a id="r-menu-drop" href="manageUser.php">จัดการผู้ใช้</a></li>
+							<li><a id="r-menu-drop" href="favFood.php">เมนูโปรดยอดยินม</a></li>
+							<li><a id="r-menu-drop" href="userFood.php">เมนูของฉัน</a></li>
+							<li><a id="r-menu-drop" href="logout.php">ออกจากระบบ</a></li>
+						</ul></li>
+						<?php }
+						}?>
 					</li>
 				</ul>
 			</nav>

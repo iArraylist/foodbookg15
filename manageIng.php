@@ -1,38 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.js"></script>
-	<script src="js/bootstrap-tagsinput.js"></script>
-	<script src="js/bootstrap-tagsinput-angular.js"></script>
-	<script src="js/bootstrap-typeahead.js"></script>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">\
+  <link rel="stylesheet" type="text/css" href="css/footer.css">
+  <link rel="stylesheet" type="text/css" href="css/categoryType.css">
+  <link rel="stylesheet" type="text/css" href="css/footer.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="js/docs.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/wow.min.js"></script>
+  <link href="css/animate.css" rel='stylesheet' type='text/css' />
+  <script>
+  new WOW().init();
+  </script>
+  <script type="text/javascript" src="js/move-top.js"></script>
+  <script type="text/javascript" src="js/easing.js"></script>
+  <script type="text/javascript">
+  jQuery(document).ready(function($) {
+    $(".scroll").click(function(event){   
+      event.preventDefault();
+      $('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+    });
+  });
+  </script>
 </head>
 <body>
-  <?php 
-  include "confic.inc.php";
-  ?>
+  <div class="container">
+    <div class="r-header-container">
 
+    </div>
+
+    <?php 
+    include "navbarV2.php";
+    ?>
   <?php 
 
   if(isset($_POST['savenewing'])){
    $result=mysql_query("insert into ingrediants(ing_name,ing_category_id) values ('$_POST[newing]','$_POST[ing_cate]')");
-   echo "เพิ่มวัตถุดิบเรียบร้อยแล้ว";
+      echo '<script language="javascript">';
+     echo 'alert("เพิ่มวัตถุดิบเรียบร้อยแล้ว")';
+     echo '</script>';
  }
 
  if(isset($_POST['savenewname'])){
    $result=mysql_query("update ingrediants set ing_name='$_POST[newname]' where ing_id='$_POST[savenewname]'");
-   echo "บันทึกเรียบร้อยแล้ว";
+      echo '<script language="javascript">';
+     echo 'alert("บันทึกเรียบร้อยแล้ว")';
+     echo '</script>';
  }
 
  if(isset($_POST['edit'])){ 
   $result=mysql_query("select * from ingrediants where ing_id='$_POST[edit]'");
   $resultData=mysql_fetch_array($result);
   ?>
-  <div style="width:400px">
+   <div style="padding:15px;background-color:#C9C9C9;color:#fff;margin-bottom:10px;">
     <form action="" method="POST">
-      <input name="newname" class="form-control" value="<?php echo $resultData['ing_name']; ?>" required />
-      <button type="submit" name="savenewname" value="<?php echo $_POST['edit']; ?>" >บันทึก</button>
+      <input name="newname" class="form-control" value="<?php echo $resultData['ing_name']; ?>" style="margin-bottom:5px;" required />
+      <button type="submit" name="savenewname" value="<?php echo $_POST['edit']; ?>" class="btn btn-primary">บันทึก</button>
     </form>
   </div>
 
@@ -42,21 +69,23 @@
 
   <div>
     <form action="" method="POST">
-      <label>เพิ่มวัตถุดิบ</label><input name="newing" class="form-control" required>
+      <div style="padding:15px;background-color:gray;color:#fff;margin-bottom:10px;">
+      <label>เพิ่มวัตถุดิบ</label><input name="newing" class="form-control" style="margin-bottom:5px;" required>
       <?php 
-      $rescate=mysql_query("select * from reci_categories");
+      $rescate=mysql_query("select * from ing_categories");
       $c=0;
       while($rescateDate=mysql_fetch_array($rescate)){
         if($c==0){
           ?>
-          <input type="radio" name="ing_cate" value="<?php echo $rescateDate['reci_category_id'];?>" checked><?php echo $rescateDate['reci_category'];?>
+          <input type="radio" name="ing_cate" value="<?php echo $rescateDate['ing_category_id'];?>" checked><?php echo $rescateDate['ing_category'];?>
           <?php } else{ ?>
-          <input type="radio" name="ing_cate" value="<?php echo $rescateDate['reci_category_id'];?>"><?php echo $rescateDate['reci_category'];?>
+          <input type="radio" style="margin-left:10px;margin-right:3px" name="ing_cate" value="<?php echo $rescateDate['ing_category_id'];?>"><?php echo $rescateDate['ing_category'];?>
           <?php 
         } $c++;
       }
       ?>
-      <br><button type="submit" name="savenewing">เพิ่ม</button>
+      <br><button type="submit" name="savenewing" class="btn btn-primary">เพิ่ม</button><br><br>
+    </div>
     </form>
   </div>
 
@@ -87,8 +116,8 @@
               <tr>
                 <td><p><?php echo $fetcharray2['ing_name'] ?></p>
                 </td>
-                <td><form action="" method="POST"><button name="edit" value="<?php echo $fetcharray2['ing_id'] ?>">แก้ไข</button></form></td>
-                <td><a data-href="<?php echo $fetcharray2['ing_id'] ?>" data-toggle="modal" data-target="#confirm-delete" href="#">ลบ</a>
+                <td><form action="" method="POST"><button name="edit" value="<?php echo $fetcharray2['ing_id'] ?>" class="btn btn-success">แก้ไข</button></form></td>
+                <td><a data-href="<?php echo $fetcharray2['ing_id'] ?>" data-toggle="modal" data-target="#confirm-delete" href="#" class="btn btn-danger">ลบ</a>
                 </td>
 
               </tr>
@@ -134,9 +163,9 @@
                 $fetcharray2 = mysql_fetch_array($dbquery2);?>
                 <tr>
                   <td><?php echo $fetcharray2['ing_name'] ?></td>
-                  <td><form action="" method="POST"><button name="edit" value="<?php echo $fetcharray2['ing_id'] ?>">แก้ไข</button></form></td>
+                  <td><form action="" method="POST"><button name="edit" value="<?php echo $fetcharray2['ing_id'] ?>" class="btn btn-success">แก้ไข</button></form></td>
                   <td>
-                    <a data-href="<?php echo $fetcharray2['ing_id'] ?>" data-toggle="modal" data-target="#confirm-delete" href="#">ลบ</a>
+                    <a data-href="<?php echo $fetcharray2['ing_id'] ?>" data-toggle="modal" data-target="#confirm-delete" href="#" class="btn btn-danger">ลบ</a>
                   </td>
 
                 </tr>
@@ -196,6 +225,9 @@
     </script>
 
 
-
-  </body>
-  </html>
+    <?php 
+    include "footer.html";
+    ?>
+  </div>
+</body>
+</html>

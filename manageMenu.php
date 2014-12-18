@@ -2,19 +2,42 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.js"></script>
-	<script src="js/bootstrap-tagsinput.js"></script>
-	<script src="js/bootstrap-tagsinput-angular.js"></script>
-	<script src="js/bootstrap-typeahead.js"></script>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">\
+	<link rel="stylesheet" type="text/css" href="css/footer.css">
+	<link rel="stylesheet" type="text/css" href="css/categoryType.css">
+	<link rel="stylesheet" type="text/css" href="css/footer.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="js/docs.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/wow.min.js"></script>
+	<link href="css/animate.css" rel='stylesheet' type='text/css' />
+	<script>
+	new WOW().init();
+	</script>
+	<script type="text/javascript" src="js/move-top.js"></script>
+	<script type="text/javascript" src="js/easing.js"></script>
+	<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+		});
+	});
+	</script>
 </head>
 <body>
-	<?php 
-	include "confic.inc.php";
-	?>
-	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+	<div class="container">
+		<div class="r-header-container">
+
+		</div>
+
+		<?php 
+		include "navbarV2.php";
+		?>
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 		<div class="panel panel-default">
 			<div class="panel-heading" role="tab">
 				<h4 class="panel-title">
@@ -27,9 +50,9 @@
 				<div class="panel-body" >
 					<table class="table table-bordered table-hover" >
 						<tr class="r-row">
-							<td>ชื่อเมนู</td>
-							<td>ผู้ใช้</td>
-							<td>จัดการ</td>
+							<td>ชื่อเมนูอาหาร</td>
+							<td>เจ้าของเมนู</td>
+							<td>ลบเมนู</td>
 						</tr>
 						<?php
 						$sql2 = "select * from recipes join members on members.member_id = recipes.member_id"; 
@@ -41,7 +64,7 @@
 							<tr>
 								<td><?php echo $fetcharray2['recipe_name'] ?></td>
 								<td><?php echo $fetcharray2['username'] ?></td>
-								<td><a data-href="<?php echo $fetcharray2['recipe_id'] ?>" data-toggle="modal" data-target="#confirm-delete" href="#">Delete</a><br></td>
+								<td><a data-href="<?php echo $fetcharray2['recipe_id'] ?>" data-toggle="modal" data-target="#confirm-delete" href="#"class="btn btn-danger">ลบ</a><br></td>
 
 							</tr>
 							<?php $num_count2 = $num_count2+1;
@@ -80,9 +103,9 @@
 					<div class="panel-body" >
 						<table class="table table-bordered table-hover" >
 							<tr class="r-row">
-								<td>ชื่อเมนู</td>
-								<td>ผู้ใช้</td>
-								<td>จัดการ</td>
+								<td>ชื่อเมนูอาหาร</td>
+								<td>เจ้าของเมนู</td>
+								<td>ลบเมนู</td>
 							</tr>
 							<?php
 							$sql2 = "select recipes.recipe_id, recipes.recipe_name, recipes.member_id, members.username, members.member_id from recipes join reci_categories_has_recipes on recipes.recipe_id = reci_categories_has_recipes.recipe_id join reci_categories on reci_categories_has_recipes.reci_category_id = reci_categories.reci_category_id join members on members.member_id = recipes.member_id where reci_categories.reci_category ='$keep_cate[$num_count]'"; 
@@ -94,7 +117,7 @@
 								<tr>
 									<td><?php echo $fetcharray2['recipe_name'] ?></td>
 									<td><?php echo $fetcharray2['username'] ?></td>
-									<td><a data-href="<?php echo $fetcharray2['recipe_id'] ?>" data-toggle="modal" data-target="#confirm-delete" href="#">Delete</a><br></td>
+									<td><a data-href="<?php echo $fetcharray2['recipe_id'] ?>" data-toggle="modal" data-target="#confirm-delete" href="#" class="btn btn-danger">ลบ</a><br></td>
 
 								</tr>
 								<?php $num_count2 = $num_count2+1;
@@ -157,6 +180,9 @@
 		</div>
 
 
-
-	</body>
-	</html>
+		<?php 
+		include "footer.html";
+		?>
+	</div>
+</body>
+</html>

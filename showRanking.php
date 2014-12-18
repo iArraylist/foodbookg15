@@ -67,6 +67,12 @@
 
 			<?php
 				}
+
+			$sql = "select * from favorites join recipes on favorites.recipe_id=recipes.recipe_id join members on recipes.member_id=members.member_id where favorites.member_id = '$_SESSION[login_id]'";
+			$dbquery1 = mysql_query($sql);
+			$num_rows = mysql_num_rows($dbquery);
+			$rows = mysql_fetch_array($dbquery1);
+
 			$dbqueryByCategory = mysql_db_query($dbname, $getRecipeByCategory);
 			while($row = mysql_fetch_array($dbqueryByCategory)){
 				$fetcharray = mysql_fetch_array($dbquery); ?>
@@ -80,7 +86,7 @@
 								<h4><a id = "title" href="showDetail.php?recipe_id=<?php echo $fetcharray['recipe_id']; ?>"><?php echo $fetcharray['recipe_name'] ;?></a>
 								</h4>
 									
-									<h5 id="username">By <?php echo $fetcharray['member_id'] ;?></h5>
+									<h5 id="username">By <?php echo $rows['username'] ;?></h5>
 										<div class="menutype-rating">
 											<kbd style="background-color:yellow;color:#000;">rating</kbd>
 										</div>

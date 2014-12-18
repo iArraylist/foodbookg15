@@ -53,14 +53,16 @@
 	include "confic.inc.php";
 	include "navbarV2.php";
 	?>
-	
 	<section id="r-search">
+	<div class="search-search">
+		
+	
 		<div role="tabpanel" style="margin-right:20px;margin-left:20px;">
 
 			<!-- Nav tabs -->
 			<ul class="nav nav-tabs" role="tablist">
-				<li role="presentation" class="active"><a href="#ByIng" aria-controls="home" role="tab" data-toggle="tab">ค้นหาจากวัตถุดิบ</a></li>
-				<li role="presentation"><a href="#ByMenu" aria-controls="profile" role="tab" data-toggle="tab">ค้นหาจากชื่อเมนูอาหาร</a></li>
+				<li role="presentation" class="active"><a id="bying" href="#ByIng" aria-controls="home" role="tab" data-toggle="tab">ค้นหาจากวัตถุดิบ</a></li>
+				<li role="presentation"><a id="bymenu" href="#ByMenu" aria-controls="profile" role="tab" data-toggle="tab">ค้นหาจากชื่อเมนูอาหาร</a></li>
 			</ul>
 
 			<!-- Tab panes -->
@@ -74,7 +76,9 @@
 			</div>
 
 		</div>
+	</div>
 	</section>
+	
 
 	<div class="test"></div>
 	<div class="test2">

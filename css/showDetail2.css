@@ -103,7 +103,7 @@ body {
 	border-bottom: 1px solid #D7D7D7;
 	margin-bottom: 20px;
 	display: block;
-
+	border-radius: 10px;
 }
 
 .crop { width: 350px; height: 350px; overflow: hidden; }
